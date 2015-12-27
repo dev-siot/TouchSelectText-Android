@@ -30,6 +30,10 @@ import timber.log.Timber;
 public class MainFragment extends Fragment {
     @Bind(R.id.main_edit) protected SelectableEditText editText;
     private List<TextView> dataTextViewList;
+
+    private int savedStart = 0, savedEnd = 0;
+    private String[] strList = {"hello", " ", "world", ".", "  ", "good", " ", "moar.ning", "?"};
+    private List<Integer> indexList = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +52,14 @@ public class MainFragment extends Fragment {
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
                 Timber.d("prepare");
                 Timber.d("selection : %s", editText.getSelectionStart());
-                editText.setSelection(5, 10);
+                int top = editText.getLayout().getLineBottom(editText.getLayout().getLineForOffset(0));
+                int bottom = editText.getLayout().getLineTop(editText.getLayout().getLineForOffset(0));
+                int x = ((int) editText.getLayout().getPrimaryHorizontal(editText.getSelectionStart()));
+                int y = (bottom - top) / 2 + top;
+                editText.showCursor(x, y);
+                int start = editText.getSelectionStart();
+                int end = editText.getSelectionEnd() ;
+                editText.move(start, end);
                 return true;
             }
 
@@ -61,56 +72,74 @@ public class MainFragment extends Fragment {
             @Override
             public void onDestroyActionMode(ActionMode mode) {
                 Timber.d("destroy");
+                editText.hide();
             }
         });
-        String[] strList = {"hello", " ", "world", ".", "  ", "good", " ", "moarning", "?"};
+        editText.setLeftClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int value = 0;
+                for(int i : indexList){
+                    if(i >= editText.getSelectionStart()){
+                        break;
+                    }else{
+                        value = i;
+                    }
+                }
+                Timber.d("left : %s %s", editText.getSelectionStart(), value);
+                int start = value;
+                int end = editText.getSelectionEnd();
+                editText.move(start, end);
+                editText.setSelection(start, end);
+            }
+        });
+        editText.setRightClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int value = 0;
+                for(int i : indexList){
+                    if(i > editText.getSelectionEnd()){
+                        value = i;
+                        break;
+                    }
+                }
+                Timber.d("right : %s %s", editText.getSelectionEnd(), value);
+                int start = editText.getSelectionStart();
+                int end = value;
+                editText.move(start, end);
+                editText.setSelection(start, end);
+            }
+        });
+        editText.setOnSelectionChanged(new SelectableEditText.OnSelectionChanged() {
+            @Override
+            public void onSelectionChanged(int start, int end) {
 
-//        for(String str : strList){
-//            addNewTextView(str);
-//        }
-//        linearContainer.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if(event.getAction() == MotionEvent.ACTION_DOWN){
-//                    for(TextView tv : dataTextViewList) {
-//                        int location[] = new int[2];
-//                        float x = event.getX();
-//                        float y = event.getY();
-//                        tv.getLocationInWindow(location);
-//                        if((x > location[0] && x < location[0]+tv.getWidth())
-//                                && (y > location[1] && y < location[1]+tv.getHeight())){
-//                            tv.setSelected(true);
-//                            Timber.d("selected %s %s", x, y);
-//                            Timber.d("selected view %s %s %s %s", location[0], location[1], location[0]+tv.getWidth(), location[1]+ tv.getHeight());
+                editText.move(start, end);
+//                Timber.d("index : %s %s %s %s %s", x, y, bottom, top, location[1]);
+//                Timber.d("change!! %s %s %s", start, end, line);
+//                if (end > savedEnd){
+//                    int before = 0;
+//                    for(int i : indexList){
+//                        if(i > end){
+//                            editText.setSelection(start, before);
+//                            break;
+//                        }else{
+//                            before = i;
 //                        }
 //                    }
-//                    Timber.d("move!!");
-//                    return false;
 //                }
-//                return true;
-//            }
-//        });
+//                savedStart = start;
+//                savedEnd = end;
+            }
+        });
+        String text = "";
+        for(String str : strList){
+            text += str;
+            indexList.add(text.length() - 1);
+        }
+        Timber.d("index : %s", indexList);
+        this.editText.setText(text);
 
         return view;
-    }
-    private void addNewTextView(String text){
-        TextView textView = new TextView(getActivity());
-        textView.setText(text);
-        textView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_textview));
-        textView.setTextIsSelectable(true);
-//        textView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-//                    Timber.d("v : %s", ((TextView) v).getText());
-//                    v.setSelected(!v.isSelected());
-//                    Timber.d("contains : %s", dataTextViewList.contains(v));
-//                    return false;
-//                }
-//                return false;
-//            }
-//        });
-        dataTextViewList.add(textView);
-//        linearContainer.addView(textView);
     }
 }

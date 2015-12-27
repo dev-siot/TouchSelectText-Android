@@ -12,24 +12,11 @@
     tools:context=".activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:id="@+id/main_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textIsSelectable="true"
-        android:text="Hello World!" />
     <com.example.sss.touchselecttest.customview.SelectableEditText
         android:id="@+id/main_edit"
         android:inputType="none"
         android:textIsSelectable="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/main_text"/>
-    <LinearLayout
-        android:id="@+id/textview_container"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/main_edit"/>
+        android:textSize="20sp"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>
