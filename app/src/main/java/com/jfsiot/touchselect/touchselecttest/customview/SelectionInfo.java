@@ -1,4 +1,4 @@
-package com.example.sss.touchselecttest.customview;
+package com.jfsiot.touchselect.touchselecttest.customview;
 
 /**
  * Created by SSS on 2015-12-27.

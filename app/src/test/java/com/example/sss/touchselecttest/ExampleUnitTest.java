@@ -1,4 +1,4 @@
-package com.example.sss.touchselecttest;
+package com.jfsiot.touchselect.touchselecttest;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.sss.touchselecttest.fragment;
+package com.jfsiot.touchselect.touchselecttest.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -10,10 +10,11 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.sss.touchselecttest.R;
-import com.example.sss.touchselecttest.customview.SelectableEditText;
+import com.jfsiot.touchselect.touchselecttest.R;
+import com.jfsiot.touchselect.touchselecttest.customview.SelectableEditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +29,11 @@ import timber.log.Timber;
 public class MainFragment extends Fragment implements View.OnTouchListener{
     @Bind(R.id.main_edit) protected SelectableEditText editText;
     @Bind(R.id.select_button) protected TextView selectButton;
+    @Bind(R.id.main_container) protected RelativeLayout container;
     private List<TextView> dataTextViewList;
 
     private int savedStart = -1, savedEnd = -1;
-    private String[] strList = {"hello world .", "  ", "good mor.ning ?", "world .", "  ", "gooooooood", " ", "morning, afternoon, evening?", "world", ".", "  ", "gooddd mor.ning?"};
+    private String[] strList = {"hello world.", "  ", "good mor.ning?", "world .", "  ", "gooooooood", " ", "morning ", " afternoon ", " evening? ", "world", ".", "  ", "gooddd mor.ning?"};
     private List<Integer> indexList = new ArrayList<>();
 
     private int currentMode;
@@ -62,10 +64,8 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
                 int bottom = editText.getLayout().getLineTop(editText.getLayout().getLineForOffset(0));
                 int x = ((int) editText.getLayout().getPrimaryHorizontal(editText.getSelectionStart()));
                 int y = (bottom - top) / 2 + top;
-                editText.showCursor(x, y);
                 int start = editText.getSelectionStart();
                 int end = editText.getSelectionEnd();
-                editText.move(start, end);
                 return true;
             }
 
@@ -88,7 +88,6 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
                 Timber.d("left : %s %s", editText.getSelectionStart(), value);
                 int start = value;
                 int end = editText.getSelectionEnd();
-                editText.move(start, end);
                 editText.setSelection(start, end);
             }
         });
@@ -99,24 +98,28 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
                 Timber.d("right : %s %s", editText.getSelectionEnd(), value);
                 int start = editText.getSelectionStart();
                 int end = value;
-                editText.move(start, end);
                 editText.setSelection(start, end);
             }
         });
         editText.setOnSelectionChanged(new SelectableEditText.OnSelectionChanged() {
             @Override
             public void onSelectionChanged(int start, int end) {
-                if(currentMode == 1) {
-                    if (savedStart < 0 && savedEnd < 0){
+                if (currentMode == 1) {
+                    if (savedStart < 0 && savedEnd < 0) {
 
                     } else if (start < savedStart)
                         editText.setSelection(jumpLeftSide(), end);
-                    else if ( end > savedEnd)
+                    else if (end > savedEnd)
                         editText.setSelection(start, jumpRightSide());
                     savedStart = start;
                     savedEnd = end;
                 }
-                editText.move(start, end);
+            }
+        });
+        this.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.clearFocus();
             }
         });
         String text = "";
@@ -177,19 +180,30 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
         return value;
     }
     public int getOffsetTextList(int offset, boolean isLeft){
-        int value = 0;
-        if(offset < indexList.get(0))
-            return 0;
-        for(int i : indexList){
-            if(i > offset){
-                value = i;
-                break;
+//        int value = 0;
+//        if(offset < indexList.get(0))
+//            return 0;
+//        for(int i : indexList){
+//            if(i > offset){
+//                value = i;
+//                break;
+//            }
+//            value = i;
+//        }
+        for(int i = 0; i < indexList.size(); i++){
+            if(indexList.get(i) > offset){
+                if(indexList.get(i) > editText.getText().length() -1)
+                    return editText.getText().length() -1;
+                else if(isLeft && i > 0)
+                    return indexList.get(i-1);
+                else if(i == 0)
+                    return 0;
+                else return indexList.get(i);
             }
-            value = i;
         }
-        if(value > editText.getText().length() - 1)
-            value = editText.getText().length() - 1;
-        return value;
+//        if(value > editText.getText().length() - 1)
+//            value = editText.getText().length() - 1;
+        return 0;
     }
 
     private void getPositionXY(int location[], int offset){
@@ -253,9 +267,9 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
                 Timber.d("orien %s %s", offset, editText.getText().toString().charAt(offset));
 
                 if(isStart){
-                    editText.setSelection(offset, editText.getSelectionEnd());
+                    editText.setSelection(Math.min(offset, editText.getSelectionEnd()), Math.max(offset, editText.getSelectionEnd()));
                 }else{
-                    editText.setSelection(editText.getSelectionStart(), offset);
+                    editText.setSelection(Math.min(offset, editText.getSelectionStart()), Math.max(offset, editText.getSelectionStart()));
                 }
 
                 return true;

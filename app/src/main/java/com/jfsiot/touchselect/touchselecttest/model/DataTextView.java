@@ -1,4 +1,4 @@
-package com.example.sss.touchselecttest.model;
+package com.jfsiot.touchselect.touchselecttest.model;
 
 import android.widget.TextView;
 

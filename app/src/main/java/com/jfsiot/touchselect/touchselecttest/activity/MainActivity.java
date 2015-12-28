@@ -1,4 +1,4 @@
-package com.example.sss.touchselecttest.activity;
+package com.jfsiot.touchselect.touchselecttest.activity;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -14,8 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.sss.touchselecttest.R;
-import com.example.sss.touchselecttest.fragment.MainFragment;
+import com.jfsiot.touchselect.touchselecttest.R;
+import com.jfsiot.touchselect.touchselecttest.fragment.MainFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

@@ -1,4 +1,4 @@
-package com.example.sss.touchselecttest.customview;
+package com.jfsiot.touchselect.touchselecttest.customview;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 
-import com.example.sss.touchselecttest.R;
+import com.jfsiot.touchselect.touchselecttest.R;
 
 import timber.log.Timber;
 

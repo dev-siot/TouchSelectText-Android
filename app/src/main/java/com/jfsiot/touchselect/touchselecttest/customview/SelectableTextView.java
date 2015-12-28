@@ -19,7 +19,7 @@
 
  */
 
-package com.example.sss.touchselecttest.customview;
+package com.jfsiot.touchselect.touchselecttest.customview;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -35,7 +35,7 @@ import android.widget.PopupWindow;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.sss.touchselecttest.R;
+import com.jfsiot.touchselect.touchselecttest.R;
 
 /**
  * User: ray Date: 2013-02-01
