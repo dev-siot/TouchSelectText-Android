@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.PopupWindow;
 
 import com.example.sss.touchselecttest.R;
-import com.squareup.picasso.Picasso;
 
 import timber.log.Timber;
 
