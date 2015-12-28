@@ -135,7 +135,7 @@ public class MainFragment extends Fragment {
         String text = "";
         for(String str : strList){
             text += str;
-            indexList.add(text.length() - 1);
+            indexList.add(text.length());
         }
         Timber.d("index : %s", indexList);
         this.editText.setText(text);
