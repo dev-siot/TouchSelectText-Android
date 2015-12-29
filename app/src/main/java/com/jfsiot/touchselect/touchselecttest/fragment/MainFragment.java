@@ -65,41 +65,28 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
 //            e.printStackTrace();
 //        }
 
-        editText.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
-            @Override
-            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                Timber.d("create");
-//                menu.close();
-//                menu.removeGroup(Menu.FLAG_ALWAYS_PERFORM_CLOSE);
-//                menu.setGroupVisible(Menu.FLAG_ALWAYS_PERFORM_CLOSE, false);
-                return true;
-            }
+//        editText.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
+//            @Override
+//            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+//                return false;
+//            }
+//
+//            @Override
+//            public void onDestroyActionMode(ActionMode mode) {
+//
+//            }
+//        });
 
-            @Override
-            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                Timber.d("prepare");
-                Timber.d("selection : %s", editText.getSelectionStart());
-                int top = editText.getLayout().getLineBottom(editText.getLayout().getLineForOffset(0));
-                int bottom = editText.getLayout().getLineTop(editText.getLayout().getLineForOffset(0));
-                int x = ((int) editText.getLayout().getPrimaryHorizontal(editText.getSelectionStart()));
-                int y = (bottom - top) / 2 + top;
-                int start = editText.getSelectionStart();
-                int end = editText.getSelectionEnd();
-                return true;
-            }
-
-            @Override
-            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                Timber.d("action");
-                return true;
-            }
-
-            @Override
-            public void onDestroyActionMode(ActionMode mode) {
-                Timber.d("destroy");
-                editText.hide();
-            }
-        });
         editText.setLeftClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +126,7 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
             @Override
             public void onClick(View v) {
                 editText.clearFocus();
+                free();
             }
         });
         String text = "";
@@ -245,6 +233,8 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
         location[1] = offset;
     }
 
+
+
     private int posDownX, posDownY;
     private int offsetDownStart, offstDownEnd;
     private boolean keepTouch;
@@ -292,22 +282,37 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
                 int offset = getOffsetTextList(location[1], swipeLeft);
                 Timber.d("orien %s %s", offset, editText.getText().toString().charAt(offset));
 
+                int fixOffset;
                 if(isStart){
-                    editText.setSelection(Math.min(offset, editText.getSelectionEnd()), Math.max(offset, editText.getSelectionEnd()));
+                    fixOffset = editText.getSelectionEnd();
+                    if(offset == fixOffset) offset --;
                 }else{
-                    editText.setSelection(Math.min(offset, editText.getSelectionStart()), Math.max(offset, editText.getSelectionStart()));
+                    fixOffset = editText.getSelectionStart();
+                    if(offset == fixOffset) offset ++;
                 }
+                editText.setSelection(Math.min(offset, fixOffset), Math.max(offset, fixOffset));
 
                 return true;
             }
             if (event.getAction() == MotionEvent.ACTION_UP) {
-                posDownX = -1;
-                posDownY = -1;
-                offsetDownStart = -1;
-                offstDownEnd = -1;
+                free();
             }
             return true;
+        }else{
+            if(event.getAction() == MotionEvent.ACTION_UP) {
+                getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
+                int start = getOffsetTextList(location[1], true), end = getOffsetTextList(location[1], false);
+                editText.setSelection(start, end);
+                return true;
+            }
         }
         return false;
+    }
+
+    public void free(){
+        posDownX = -1;
+        posDownY = -1;
+        offsetDownStart = -1;
+        offstDownEnd = -1;
     }
 }
