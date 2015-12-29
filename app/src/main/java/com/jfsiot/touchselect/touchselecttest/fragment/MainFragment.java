@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.ActionMode;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.jfsiot.touchselect.touchselecttest.R;
 import com.jfsiot.touchselect.touchselecttest.customview.SelectableEditText;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,16 +45,33 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
         super.onCreate(savedInstanceState);
     }
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_main, container, false);
         ButterKnife.bind(this, view);
         dataTextViewList = new ArrayList<>();
+//        try {
+//            Field editorField = TextView.class.getDeclaredField("mEditor");
+//            editorField.setAccessible(true);
+//            Object editorObject = editorField.get(this);
+//
+//            Class editorClass = Class.forName("android.widget.Editor");
+//            Field mInsertionControllerEnabledField = editorClass.getDeclaredField("mInsertionControllerEnabled");
+//            mInsertionControllerEnabledField.setAccessible(true);
+//            mInsertionControllerEnabledField.set(editorObject, false);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+
         editText.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 Timber.d("create");
+//                menu.close();
+//                menu.removeGroup(Menu.FLAG_ALWAYS_PERFORM_CLOSE);
+//                menu.setGroupVisible(Menu.FLAG_ALWAYS_PERFORM_CLOSE, false);
                 return true;
             }
 
@@ -228,6 +247,8 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
 
     private int posDownX, posDownY;
     private int offsetDownStart, offstDownEnd;
+    private boolean keepTouch;
+    Boolean isStart;
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -238,30 +259,35 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
                 posDownY = ((int) event.getY());
                 offsetDownStart = editText.getSelectionStart();
                 offstDownEnd = editText.getSelectionEnd();
+                keepTouch = false;
                 return true;
             }
             if (event.getAction() == MotionEvent.ACTION_MOVE) {
                 if (posDownX < 0 || posDownY < 0) return true;
 
                 boolean swipeLeft;
-                boolean isStart;
                 getPositionLineOffset(location, posDownX, posDownY);
                 int diff = location[1];
                 getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
                 diff -= location[1];
 
-                if(diff > 0)        swipeLeft = true;
-                else if(diff == 0)  return true;
-                else                swipeLeft = false;
+                if (diff > 0) swipeLeft = true;
+                else if (diff == 0) return true;
+                else swipeLeft = false;
 
                 getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
-                if      (location[1] < offsetDownStart && swipeLeft)  isStart = true;
-                else if (offsetDownStart < location[1] && location[1] < offstDownEnd && swipeLeft)  isStart = false;
-                else if (offsetDownStart < location[1] && location[1] < offstDownEnd && !swipeLeft) isStart = true;
-                else if (location[1] > offstDownEnd   && !swipeLeft) isStart = false;
-                else return true;
+                if (!keepTouch){
+                    if (location[1] < offsetDownStart && swipeLeft) isStart = true;
+                    else if (offsetDownStart < location[1] && location[1] < offstDownEnd && swipeLeft)
+                        isStart = false;
+                    else if (offsetDownStart < location[1] && location[1] < offstDownEnd && !swipeLeft)
+                        isStart = true;
+                    else if (location[1] > offstDownEnd && !swipeLeft) isStart = false;
+                    else return true;
+                    keepTouch = true;
+                }
+                Timber.d("orientation %s , %s", swipeLeft ? "left" : "right", isStart == null ? "null" : isStart ? "start" : "end");
 
-                Timber.d("orientation %s , %s", swipeLeft ? "left" : "right", isStart ? "start" : "end");
                 getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
                 int offset = getOffsetTextList(location[1], swipeLeft);
                 Timber.d("orien %s %s", offset, editText.getText().toString().charAt(offset));
