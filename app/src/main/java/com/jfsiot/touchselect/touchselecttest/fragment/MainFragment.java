@@ -3,11 +3,7 @@ package com.jfsiot.touchselect.touchselecttest.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.ActionMode;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +13,6 @@ import android.widget.TextView;
 import com.jfsiot.touchselect.touchselecttest.R;
 import com.jfsiot.touchselect.touchselecttest.customview.SelectableEditText;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +23,7 @@ import timber.log.Timber;
 /**
  * Created by SSS on 2015-12-27.
  */
-public class MainFragment extends Fragment implements View.OnTouchListener{
+public class MainFragment extends Fragment implements View.OnTouchListener, View.OnLongClickListener, SelectableEditText.OnTouchDownListener {
     @Bind(R.id.main_edit) protected SelectableEditText editText;
     @Bind(R.id.select_button) protected TextView selectButton;
     @Bind(R.id.main_container) protected RelativeLayout container;
@@ -91,7 +86,6 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
             @Override
             public void onClick(View v) {
                 int value = jumpLeftSide();
-                Timber.d("left : %s %s", editText.getSelectionStart(), value);
                 int start = value;
                 int end = editText.getSelectionEnd();
                 editText.setSelection(start, end);
@@ -101,7 +95,6 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
             @Override
             public void onClick(View v) {
                 int value = jumpRightSide();
-                Timber.d("right : %s %s", editText.getSelectionEnd(), value);
                 int start = editText.getSelectionStart();
                 int end = value;
                 editText.setSelection(start, end);
@@ -122,15 +115,16 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
                 }
             }
         });
-        this.container.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.clearFocus();
-                free();
-            }
-        });
+//        this.container.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                editText.clearFocus();
+//                free();
+//            }
+//        });
         String text = "";
-        for(String str : strList){
+//        for(String str : strList){
+        for(String str : getResources().getStringArray(R.array.word_text)){
             text += str;
             indexList.add(text.length());
         }
@@ -144,6 +138,7 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
     public void onResume() {
         super.onResume();
         this.editText.setOnTouchListener(this);
+        this.editText.setOnLongClickListener(this);
         currentMode = 0;
         selectButton.setText("normal handle");
         selectButton.setOnClickListener(new View.OnClickListener() {
@@ -228,16 +223,22 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
     private void getPositionLineOffset(int location[], int x, int y){
         int line = editText.getLayout().getLineForVertical(y);
         int offset = editText.getLayout().getOffsetForHorizontal(line, x);
-        Timber.d("** line off : %s %s", line, offset);
         location[0] = line;
         location[1] = offset;
     }
 
+    public void free(){
+        posDownX = -1;
+        posDownY = -1;
+        offsetDownStart = -1;
+        offstDownEnd = -1;
+    }
 
 
     private int posDownX, posDownY;
     private int offsetDownStart, offstDownEnd;
     private boolean keepTouch;
+    private boolean moving;
     Boolean isStart;
 
     @Override
@@ -276,11 +277,9 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
                     else return true;
                     keepTouch = true;
                 }
-                Timber.d("orientation %s , %s", swipeLeft ? "left" : "right", isStart == null ? "null" : isStart ? "start" : "end");
 
                 getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
                 int offset = getOffsetTextList(location[1], swipeLeft);
-                Timber.d("orien %s %s", offset, editText.getText().toString().charAt(offset));
 
                 int fixOffset;
                 if(isStart){
@@ -299,20 +298,40 @@ public class MainFragment extends Fragment implements View.OnTouchListener{
             }
             return true;
         }else{
-            if(event.getAction() == MotionEvent.ACTION_UP) {
-                getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
-                int start = getOffsetTextList(location[1], true), end = getOffsetTextList(location[1], false);
-                editText.setSelection(start, end);
-                return true;
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                this.posDownX = ((int) event.getX());
+                this.posDownY = ((int) event.getY());
+                moving = false;
+            }
+            if(event.getAction() == MotionEvent.ACTION_MOVE) {
+                Timber.d("move");
+                moving = true;
+            }else if(event.getAction() == MotionEvent.ACTION_UP) {
+                float diff = posDownX - event.getX() + posDownY - event.getY();
+                Timber.d("diff : %s", diff);
+
+                if(Math.abs(diff) < 20) {
+                    getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
+                    int start = getOffsetTextList(location[1], true), end = getOffsetTextList(location[1], false);
+//                    editText.setTextIsSelectable(true);
+                    editText.setSelection(start, end);
+                    return true;
+                }else{
+                    return true;
+                }
             }
         }
         return false;
     }
 
-    public void free(){
-        posDownX = -1;
-        posDownY = -1;
-        offsetDownStart = -1;
-        offstDownEnd = -1;
+    @Override
+    public boolean onLongClick(View v) {
+//        if(editText.hasSelection()){
+//            Timber.d("cancel");
+//            editText.clearFocus();
+//            free();
+//            return true;
+//        }
+        return true;
     }
 }

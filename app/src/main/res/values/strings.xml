@@ -5,4 +5,204 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="word_text" translatable = "false">
+        <item>"신기루"</item>
+        <item>"는" </item>
+        <item>" 그"</item>
+        <item>" 자리"</item>
+        <item>"에"</item>
+        <item>" 없는 "</item>
+        <item>" 어떤"</item>
+        <item>" 대상"</item>
+        <item>"이"</item>
+        <item>" 마치"</item>
+        <item>" 있는 것"</item>
+        <item>" 처럼"</item>
+        <item>" 보이는"</item>
+        <item>" 현상"</item>
+        <item>"을"</item>
+        <item>말한다</item>
+        <item>.</item>
+        <item>"\n"</item>
+        <item>"신기루"</item>
+        <item>"는 "</item>
+        <item>"환상"</item>
+        <item>"이나 "</item>
+        <item>"눈속임"</item>
+        <item>"이 "</item>
+        <item>"아니라 "</item>
+        <item>"원래"</item>
+        <item>"의 "</item>
+        <item>"대상"</item>
+        <item>"이 "</item>
+        <item>"공기층"</item>
+        <item>"의 "</item>
+        <item>"온도 차"</item>
+        <item>"때문"</item>
+        <item>"에 "</item>
+        <item>"다른 곳"</item>
+        <item>"에 "</item>
+        <item>"보이게 "</item>
+        <item>"되는 "</item>
+        <item>"현상"</item>
+        <item>"이다. "</item>
+        <item>"\n"</item>
+        <item>"찬 "</item> 
+        <item>"공기층"</item>
+        <item>"은 "</item>
+        <item>"밀도"</item>
+        <item>"가 "</item>
+        <item>"크고 "</item>
+        <item>"따뜻한"</item>
+        <item>"공기층"</item>
+        <item>"은 "</item>
+        <item>"밀도"</item>
+        <item>"가 "</item>
+        <item>"작다."</item>
+        <item>"\n"</item>
+        <item>"이러한 "</item> 
+        <item>"밀도 "</item> 
+        <item>"차이"</item>
+        <item>"는 "</item>
+        <item>"빛"</item>
+        <item>"이 "</item>
+        <item>"공기"</item>
+        <item>"를 "</item>
+        <item>"통과"</item>
+        <item>"하는 "</item>
+        <item>"시간"</item>
+        <item>"을 "</item>
+        <item>"변화"</item>
+        <item>"시키는데"</item>
+        <item>", "</item>
+        <item>"밀도"</item>
+        <item>"가 "</item>
+        <item>"클수록 "</item>
+        <item>"시간"</item>
+        <item>"이 "</item>
+        <item>"더 "</item>
+        <item>"걸리게 "</item>
+        <item>"된다"</item>
+        <item>"."</item>
+        <item>"\n"</item>
+        <item>"이 때 "</item>
+        <item>"공기층"</item>
+        <item>"을 "</item>
+        <item>"지나는 "</item>
+        <item>"빛"</item>
+        <item>"은 "</item>
+        <item>"밀도"</item>
+        <item>"가 "</item>
+        <item>"다른 "</item>
+        <item>"경계 면"</item>
+        <item>"을 "</item>
+        <item>"통과 "</item>
+        <item>"하면서 "</item>
+        <item>"굴절"</item>
+        <item>"한다"</item>
+        <item>"."</item>
+        <item>"따라서 "</item>
+        <item>"신기루"</item>
+        <item>"는 "</item>
+        <item>"지표면 "</item>
+        <item>"공기"</item>
+        <item>"와 "</item>
+        <item>"그 위 "</item>
+        <item>"공기"</item>
+        <item>" 간"</item>
+        <item>"의 "</item>
+        <item>"온도 차"</item>
+        <item>"가 "</item>
+        <item>"큰" "사막"</item>
+        <item>"이나 "</item>
+        <item>"극지방"</item>
+        <item>" 에서 "</item>
+        <item>"쉽게 "</item>
+        <item>"관찰"</item>
+        <item>" 할 수 있다"</item>
+        <item>"."</item>
+        <item>"\n"</item>
+        <item>"뜨거운 "</item>
+        <item>"여름"</item>
+        <item>", "</item>
+        <item>"사막"</item>
+        <item>"의 "</item>
+        <item>"지표면"</item>
+        <item>"은 "</item>
+        <item>"쉽게 "</item>
+        <item>"햇볕"</item>
+        <item>"을 "</item>
+        <item>"받아 "</item>
+        <item>"가열"</item>
+        <item>"되고"", "</item>
+        <item>"지표면 "</item>
+        <item>"공기"</item>
+        <item>"는 "</item>
+        <item>"그" "위층"</item>
+        <item>"의 "</item>
+        <item>"공기"</item>
+        <item>"에 "</item>
+        <item>"비해 "</item>
+        <item>"쉽게 "</item>
+        <item>"뜨거워진다"</item>
+        <item>".\n"</item>
+        <item>"뜨거운 "</item>
+        <item>"공기"</item>
+        <item>"는 "</item>
+        <item>"차가운 "</item>
+        <item>"공기"</item>
+        <item>"에 "</item>
+        <item>"비해 "</item>
+        <item>"밀도"</item>
+        <item>"가 "</item>
+        <item>"작은데"</item>
+        <item>", "</item>
+        <item>"이러한 "</item>
+        <item>"밀도 차이"</item>
+        <item>"에 "</item>
+        <item>"의해 "</item>
+        <item>"빛"</item>
+        <item>"이 "</item>
+        <item>"굴절"</item>
+        <item>"하게 "</item>
+        <item>"된다"</item>
+        <item>"."</item>
+        <item>"\n"</item>
+        <item>"나무 "</item>
+        <item>"한 "</item>
+        <item>"그루"</item>
+        <item>"가 "</item>
+        <item>"사막"</item>
+        <item>" 위"</item>
+        <item>"에 "</item>
+        <item>"있다고 "</item>
+        <item>"가정"</item>
+        <item>"하자""."</item>
+        <item>"나무"</item>
+        <item>"의 "</item>
+        <item>"윗부분"</item>
+        <item>"에서 "</item>
+        <item>"나온 "</item>
+        <item>"빛"</item>
+        <item>"의 "</item>
+        <item>"일부"</item>
+        <item>"는 "</item>
+        <item>"직진"</item>
+        <item>"하여 "</item>
+        <item>"사람 "</item>
+        <item>"눈"</item>
+        <item>"에 "</item>
+        <item>"곧바로 "</item>
+        <item>"도달"</item>
+        <item>"하므로 "</item>
+        <item>"우리 눈"</item>
+        <item>"에는 "</item>
+        <item>"똑바로 "</item>
+        <item>"선 "</item>
+        <item>"나무"</item>
+        <item>"가 "</item>
+        <item>"보인다"</item>
+        <item>"."</item>
+    </string-array>
 </resources>
