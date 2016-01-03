@@ -23,7 +23,7 @@ import timber.log.Timber;
 /**
  * Created by SSS on 2015-12-27.
  */
-public class MainFragment extends Fragment implements View.OnTouchListener, View.OnLongClickListener, SelectableEditText.OnTouchDownListener {
+public class MainFragment extends Fragment implements View.OnTouchListener {
     @Bind(R.id.main_edit) protected SelectableEditText editText;
     @Bind(R.id.select_button) protected TextView selectButton;
     @Bind(R.id.main_container) protected RelativeLayout container;
@@ -46,6 +46,7 @@ public class MainFragment extends Fragment implements View.OnTouchListener, View
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_main, container, false);
         ButterKnife.bind(this, view);
+
         dataTextViewList = new ArrayList<>();
 //        try {
 //            Field editorField = TextView.class.getDeclaredField("mEditor");
@@ -138,7 +139,7 @@ public class MainFragment extends Fragment implements View.OnTouchListener, View
     public void onResume() {
         super.onResume();
         this.editText.setOnTouchListener(this);
-        this.editText.setOnLongClickListener(this);
+        free();
         currentMode = 0;
         selectButton.setText("normal handle");
         selectButton.setOnClickListener(new View.OnClickListener() {
@@ -232,6 +233,8 @@ public class MainFragment extends Fragment implements View.OnTouchListener, View
         posDownY = -1;
         offsetDownStart = -1;
         offstDownEnd = -1;
+        this.editText.setTextIsSelectable(false);
+        this.editText.clearFocus();
     }
 
 
@@ -239,15 +242,44 @@ public class MainFragment extends Fragment implements View.OnTouchListener, View
     private int offsetDownStart, offstDownEnd;
     private boolean keepTouch;
     private boolean moving;
+    private long downTime, tabTime = 0;
     Boolean isStart;
+
+
+//    @Override
+//    public boolean onTouchDown(MotionEvent event) {
+//        if (editText.hasSelection()) {
+//            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//                posDownX = ((int) event.getX());
+//                posDownY = ((int) event.getY());
+//                offsetDownStart = editText.getSelectionStart();
+//                offstDownEnd = editText.getSelectionEnd();
+//                keepTouch = false;
+//                return true;
+//            }
+//        }else {
+//            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//                this.posDownX = ((int) event.getX());
+//                this.posDownY = ((int) event.getY());
+//                moving = false;
+//            }
+//        }
+//        return false;
+//    }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         int location[] = new int[2];
+        if(event.getAction() == MotionEvent.ACTION_DOWN){
+            this.downTime = event.getEventTime();
+            this.posDownX = ((int) event.getX());
+            this.posDownY = ((int) event.getY());
+        }
+        if(event.getEventTime() - downTime > 500)
+            free();
+        float diff = posDownX - event.getX() + posDownY - event.getY();
         if (editText.hasSelection()) {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                posDownX = ((int) event.getX());
-                posDownY = ((int) event.getY());
                 offsetDownStart = editText.getSelectionStart();
                 offstDownEnd = editText.getSelectionEnd();
                 keepTouch = false;
@@ -258,12 +290,12 @@ public class MainFragment extends Fragment implements View.OnTouchListener, View
 
                 boolean swipeLeft;
                 getPositionLineOffset(location, posDownX, posDownY);
-                int diff = location[1];
+                int diffPositiion = location[1];
                 getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
-                diff -= location[1];
+                diffPositiion -= location[1];
 
-                if (diff > 0) swipeLeft = true;
-                else if (diff == 0) return true;
+                if (diffPositiion > 0) swipeLeft = true;
+                else if (diffPositiion == 0) return true;
                 else swipeLeft = false;
 
                 getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
@@ -293,27 +325,50 @@ public class MainFragment extends Fragment implements View.OnTouchListener, View
 
                 return true;
             }
-            if (event.getAction() == MotionEvent.ACTION_UP) {
-                free();
+            if (event.getAction() == MotionEvent.ACTION_UP && diff < 20) {
+                if(event.getEventTime() - downTime < 150){
+                    getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
+                    int offset, fixOffset;
+                    if(tabTime != 0 && event.getEventTime() - tabTime < 200){
+                        tabTime = 0;
+                        this.free();
+                    }else {
+                        tabTime = event.getEventTime();
+
+                        /**
+                         * Change selection range
+                         */
+                        float centerOfSelection =  editText.getSelectionStart() + (editText.getSelectionEnd() - editText.getSelectionStart()) / 2;
+                        Timber.d("center : %s %s %s", editText.getSelectionStart(), centerOfSelection, editText.getSelectionEnd());
+                        if (location[1] <= centerOfSelection) {
+                            offset = getOffsetTextList(location[1], true);
+                            fixOffset = editText.getSelectionEnd();
+                            editText.setSelection(offset, fixOffset);
+                        } else if (location[1] > centerOfSelection) {
+                            offset = getOffsetTextList(location[1], false);
+                            fixOffset = editText.getSelectionStart();
+                            editText.setSelection(fixOffset, offset);
+                        }
+                    }
+                }
             }
             return true;
         }else{
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                this.posDownX = ((int) event.getX());
-                this.posDownY = ((int) event.getY());
                 moving = false;
+                editText.setTextIsSelectable(true);
+            }
+            if (event.getEventTime() - downTime > 150) {
+                editText.setTextIsSelectable(false);
+                free();
             }
             if(event.getAction() == MotionEvent.ACTION_MOVE) {
-                Timber.d("move");
                 moving = true;
             }else if(event.getAction() == MotionEvent.ACTION_UP) {
-                float diff = posDownX - event.getX() + posDownY - event.getY();
-                Timber.d("diff : %s", diff);
 
                 if(Math.abs(diff) < 20) {
                     getPositionLineOffset(location, ((int) event.getX()), ((int) event.getY()));
                     int start = getOffsetTextList(location[1], true), end = getOffsetTextList(location[1], false);
-//                    editText.setTextIsSelectable(true);
                     editText.setSelection(start, end);
                     return true;
                 }else{
@@ -322,16 +377,5 @@ public class MainFragment extends Fragment implements View.OnTouchListener, View
             }
         }
         return false;
-    }
-
-    @Override
-    public boolean onLongClick(View v) {
-//        if(editText.hasSelection()){
-//            Timber.d("cancel");
-//            editText.clearFocus();
-//            free();
-//            return true;
-//        }
-        return true;
     }
 }
