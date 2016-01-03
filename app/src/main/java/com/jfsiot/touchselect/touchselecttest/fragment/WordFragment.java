@@ -154,46 +154,6 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
                 keepTouch = false;
                 return true;
             }
-//            if (event.getAction() == MotionEvent.ACTION_MOVE) {
-//                if (posDownX < 0 || posDownY < 0) return true;
-//
-//                boolean swipeLeft;
-//                TextOffsetHelper.getPositionLineOffset(location, this.editText, posDownX, posDownY);
-//                int diffPositiion = location[1];
-//                TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getX()), ((int) event.getY()));
-//                diffPositiion -= location[1];
-//
-//                if (diffPositiion > 0) swipeLeft = true;
-//                else if (diffPositiion == 0) return true;
-//                else swipeLeft = false;
-//
-//                TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getX()), ((int) event.getY()));
-//                if (!keepTouch){
-//                    if (location[1] < offsetDownStart && swipeLeft) isStart = true;
-//                    else if (offsetDownStart < location[1] && location[1] < offstDownEnd && swipeLeft)
-//                        isStart = false;
-//                    else if (offsetDownStart < location[1] && location[1] < offstDownEnd && !swipeLeft)
-//                        isStart = true;
-//                    else if (location[1] > offstDownEnd && !swipeLeft) isStart = false;
-//                    else return true;
-//                    keepTouch = true;
-//                }
-//
-//                TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getX()), ((int) event.getY()));
-//                int offset = TextOffsetHelper.getOffsetTextList(indexList, location[1], swipeLeft, editText.getText().length()-1);
-//
-//                int fixOffset;
-//                if(isStart){
-//                    fixOffset = editText.getSelectionEnd();
-//                    if(offset == fixOffset) offset --;
-//                }else{
-//                    fixOffset = editText.getSelectionStart();
-//                    if(offset == fixOffset) offset ++;
-//                }
-//                editText.setSelection(Math.min(offset, fixOffset), Math.max(offset, fixOffset));
-//
-//                return true;
-//            }
             if (event.getAction() == MotionEvent.ACTION_UP && diff < 20) {
                 if(event.getEventTime() - downTime < 150){
                     TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getX()), ((int) event.getY()));
