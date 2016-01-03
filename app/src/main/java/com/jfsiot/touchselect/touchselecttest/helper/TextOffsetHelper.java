@@ -38,8 +38,8 @@ public class TextOffsetHelper {
 
 
     /**
-     * @param indexList : Word index List of text List
-     * @param position : Text selection start index of EditText
+     * @param indexList Word index List of text List
+     * @param position Text selection start index of EditText
      */
     public static int jumpLeftSide(List<Integer> indexList, int position){
         int value = 0;
@@ -54,8 +54,8 @@ public class TextOffsetHelper {
     }
 
     /**
-     * @param indexList : Word index List of text List
-     * @param position : Text selection end index of EditText
+     * @param indexList Word index List of text List
+     * @param position Text selection end index of EditText.(EditText.getSlectionEnd())
      */
     public static int jumpRightSide(List<Integer> indexList, int position){
         int value = 0;
@@ -71,7 +71,7 @@ public class TextOffsetHelper {
     /**
      * @param editText : Current usage
      * */
-    private static void getPositionXY(int location[], EditText editText, int offset){
+    public static void getPositionXY(int location[], EditText editText, int offset){
 //        int[] screenLocation = new int[2];
 //        editText.getLocationOnScreen(screenLocation);
         int line = editText.getLayout().getLineForOffset(offset);
@@ -83,7 +83,7 @@ public class TextOffsetHelper {
         location[1] = y;
     }
 
-    private static void getPositionLineOffset(int location[], EditText editText, int x, int y){
+    public static void getPositionLineOffset(int location[], EditText editText, int x, int y){
         int line = editText.getLayout().getLineForVertical(y);
         int offset = editText.getLayout().getOffsetForHorizontal(line, x);
         location[0] = line;
