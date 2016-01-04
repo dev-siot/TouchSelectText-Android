@@ -27,7 +27,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
     @Bind(R.id.main_edit) protected SelectableEditText editText;
     @Bind(R.id.main_container) protected RelativeLayout container;
 
-    protected List<Integer> indexList = new ArrayList<>();
+    protected List<Integer> mainIndexList = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
         String text = "";
         for(String str : this.getStringArrayResourse()){
             text += str;
-            indexList.add(text.length());
+            mainIndexList.add(text.length());
         }
         this.editText.setText(text);
 
@@ -121,22 +121,20 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
                          * Change selection range
                          */
                         float centerOfSelection =  editText.getSelectionStart() + (editText.getSelectionEnd() - editText.getSelectionStart()) / 2;
-                        if (location[1] <= centerOfSelection) {
-                            offset = TextOffsetHelper.getOffsetTextList(indexList, location[1], true, editText.getText().toString());
-                            fixOffset = editText.getSelectionEnd();
-                            if(Math.abs(editText.getSelectionStart() - offset) > 1) editText.setSelection(offset, fixOffset);
+                        if(location[1] < editText.getSelectionStart()) {
+                            this.touchOuter(true , location[1]);
+                        } else if (location[1] > editText.getSelectionEnd()) {
+                            this.touchOuter(false, location[1]);
+                        } else if (location[1] <= centerOfSelection) {
+                            this.touchInner(true, location[1]);
                         } else if (location[1] > centerOfSelection) {
-                            offset = TextOffsetHelper.getOffsetTextList(indexList, location[1], false, editText.getText().toString());
-                            fixOffset = editText.getSelectionStart();
-                            if(Math.abs(editText.getSelectionEnd() - offset) > 1)  editText.setSelection(fixOffset, offset);
+                            this.touchInner(false, location[1]);
                         }
                     }
                     return true;
                 }
             }
             return true;
-
-
         }else{
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 editText.setFocusable(true);
@@ -153,8 +151,8 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
             }else if (event.getAction() == MotionEvent.ACTION_UP) {
                 if(diffRaw < 20) {
                     TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getX()), ((int) event.getY() + editText.getScrollY()));
-                    int start = TextOffsetHelper.getOffsetTextList(indexList, location[1], true, editText.getText().toString() )
-                            , end = TextOffsetHelper.getOffsetTextList(indexList, location[1], false, editText.getText().toString());
+                    int start = TextOffsetHelper.getOffsetTextList(mainIndexList, location[1], true, editText.getText().toString() )
+                            , end = TextOffsetHelper.getOffsetTextList(mainIndexList, location[1], false, editText.getText().toString());
                     editText.setSelection(start, end);
                     return true;
                 }else{
@@ -163,5 +161,32 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
             }
         }
         return false;
+    }
+
+    protected void touchInner(boolean isLeft, int letterOffset){
+        int offset, fixOffset;
+        if(isLeft) {
+            offset = TextOffsetHelper.getOffsetTextList(mainIndexList, letterOffset, true, editText.getText().toString());
+            fixOffset = editText.getSelectionEnd();
+            if (Math.abs(editText.getSelectionStart() - offset) > 1)
+                editText.setSelection(offset, fixOffset);
+        }else{
+            offset = TextOffsetHelper.getOffsetTextList(mainIndexList, letterOffset, false, editText.getText().toString());
+            fixOffset = editText.getSelectionStart();
+            if(Math.abs(editText.getSelectionEnd() - offset) > 1)  editText.setSelection(fixOffset, offset);
+        }
+    }
+    protected void touchOuter(boolean isLeft, int letterOffset){
+        int offset, fixOffset;
+        if(isLeft) {
+            offset = TextOffsetHelper.getOffsetTextList(mainIndexList, letterOffset, true, editText.getText().toString());
+            fixOffset = editText.getSelectionEnd();
+            if (Math.abs(editText.getSelectionStart() - offset) > 1)
+                editText.setSelection(offset, fixOffset);
+        }else{
+            offset = TextOffsetHelper.getOffsetTextList(mainIndexList, letterOffset, false, editText.getText().toString());
+            fixOffset = editText.getSelectionStart();
+            if(Math.abs(editText.getSelectionEnd() - offset) > 1)  editText.setSelection(fixOffset, offset);
+        }
     }
 }

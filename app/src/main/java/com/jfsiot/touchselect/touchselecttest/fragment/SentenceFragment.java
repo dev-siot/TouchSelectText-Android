@@ -17,6 +17,6 @@ public class SentenceFragment extends SelectableFragment implements View.OnTouch
 
     @Override
     protected String[] getStringArrayResourse() {
-        return getResources().getStringArray(R.array.sentence_text);
+        return ((MainActivity) getActivity()).getTextSourse(1);
     }
 }

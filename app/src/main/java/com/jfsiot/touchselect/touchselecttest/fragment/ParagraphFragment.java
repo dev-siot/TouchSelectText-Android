@@ -17,6 +17,6 @@ public class ParagraphFragment extends SelectableFragment implements View.OnTouc
 
     @Override
     protected String[] getStringArrayResourse() {
-        return getResources().getStringArray(R.array.paragraph_text);
+        return ((MainActivity) getActivity()).getTextSourse(2);
     }
 }

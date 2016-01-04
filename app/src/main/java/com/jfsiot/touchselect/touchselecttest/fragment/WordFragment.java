@@ -17,6 +17,6 @@ public class WordFragment extends SelectableFragment implements View.OnTouchList
 
     @Override
     protected String[] getStringArrayResourse() {
-        return getResources().getStringArray(R.array.word_text);
+        return ((MainActivity) getActivity()).getTextSourse(0);
     }
 }

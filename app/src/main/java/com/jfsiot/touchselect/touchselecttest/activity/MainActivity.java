@@ -13,15 +13,18 @@ import android.view.MenuItem;
 
 import com.jfsiot.touchselect.touchselecttest.R;
 import com.jfsiot.touchselect.touchselecttest.Toolbar.OnToolbarAction;
+import com.jfsiot.touchselect.touchselecttest.fragment.ComplexSentenceParagraphFragment;
+import com.jfsiot.touchselect.touchselecttest.fragment.ComplexWordParagraphFragment;
+import com.jfsiot.touchselect.touchselecttest.fragment.ComplexWordSentenceFragment;
 import com.jfsiot.touchselect.touchselecttest.fragment.DefaultFragment;
 import com.jfsiot.touchselect.touchselecttest.fragment.ParagraphFragment;
 import com.jfsiot.touchselect.touchselecttest.fragment.PasteFragment;
 import com.jfsiot.touchselect.touchselecttest.fragment.SentenceFragment;
 import com.jfsiot.touchselect.touchselecttest.fragment.WordFragment;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
+    private int textKindOf = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +82,20 @@ public class MainActivity extends AppCompatActivity
             if(fragment instanceof OnToolbarAction)
                 ((OnToolbarAction) fragment).OnToolbarAction(1);
             return true;
+        }else if (id == R.id.action_text_swap){
+            this.textKindOf ^= 1;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public String[] getTextSourse(int range){
+        switch (range){
+            case 0 : return getResources().getStringArray(textKindOf > 0 ? R.array.word_text2 : R.array.word_text);
+            case 1 : return getResources().getStringArray(textKindOf > 0 ? R.array.sentence_text2 : R.array.sentence_text);
+            case 2 : return getResources().getStringArray(textKindOf > 0 ? R.array.paragraph_text2 : R.array.paragraph_text);
+            default: return new String[0];
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -100,11 +114,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_paragraph) {
             fragment = new ParagraphFragment();
         } else if (id == R.id.nav_complex_word_sentence) {
-
+            fragment = new ComplexWordSentenceFragment();
         } else if (id == R.id.nav_complex_word_paragraph) {
-
+            fragment = new ComplexWordParagraphFragment();
         } else if (id == R.id.nav_complex_sentence_paragraph) {
-
+            fragment = new ComplexSentenceParagraphFragment();
         } else if (id == R.id.nav_paste) {
             fragment = new PasteFragment();
         }

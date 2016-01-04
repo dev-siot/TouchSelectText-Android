@@ -6,4 +6,9 @@
         android:orderInCategory="100"
         android:title="@string/action_complete"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_text_swap"
+        android:orderInCategory="100"
+        android:title="@string/action_swap"
+        app:showAsAction="ifRoom" />
 </menu>
