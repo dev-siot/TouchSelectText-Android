@@ -1,35 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
-
-    <item android:title="Communicate">
+    <item android:title="@string/nav_drawer_group_complex">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_paste"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="@string/nav_drawer_paste" />
+            </menu>
+    </item>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_default"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/nav_drawer_default" />
+        <item
+            android:id="@+id/nav_word"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/nav_drawer_word" />
+        <item
+            android:id="@+id/nav_sentence"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/nav_drawer_sentence" />
+        <item
+            android:id="@+id/nav_paragraph"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/nav_drawer_paragraph" />
+    </group>
+
+    <item android:title="@string/nav_drawer_group_complex">
+        <menu>
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_complex_word_sentence"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/nav_drawer_group_complex_word_sentence" />
+            <item
+                android:id="@+id/nav_complex_word_paragraph"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="@string/nav_drawer_group_complex_word_paragraph" />
+            <item
+                android:id="@+id/nav_complex_sentence_paragraph"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/nav_drawer_group_complex_sentence_paragraph" />
         </menu>
     </item>
 

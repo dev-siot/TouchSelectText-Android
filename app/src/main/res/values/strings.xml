@@ -5,6 +5,19 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_complete">Complete</string>
+
+    <!--nav drawer name-->
+    <string name="nav_drawer_paste">Paste</string>
+    <string name="nav_drawer_default">Default</string>
+    <string name="nav_drawer_word">Word</string>
+    <string name="nav_drawer_sentence">Setence</string>
+    <string name="nav_drawer_paragraph">Paragraph</string>
+    <string name="nav_drawer_group_complex">Complex</string>
+    <string name="nav_drawer_group_complex_word_sentence">Word - Sentence</string>
+    <string name="nav_drawer_group_complex_word_paragraph">Word - Paragraph</string>
+    <string name="nav_drawer_group_complex_sentence_paragraph">Setence - Paragraph</string>
+
 
     <string-array name="word_text" translatable = "false">
         <item>"신기루"</item>
@@ -39,7 +52,7 @@
         <item>"공기층"</item>
         <item>"의 "</item>
         <item>"온도 차"</item>
-        <item>"때문"</item>
+        <item>" 때문"</item>
         <item>"에 "</item>
         <item>"다른 곳"</item>
         <item>"에 "</item>
@@ -204,4 +217,26 @@
         <item>"가 "</item>
         <item>"보인다."</item>
     </string-array>
+
+    <string-array name="sentence_text" translatable = "false">
+        <item>"신기루는 그 자리에 없는 어떤 대상이 마치 있는 것 처럼 보이는 현상을 말한다.\n"</item>
+        <item>"신기루는 환상이나 눈속임이 아니라 원래의 대상이 공기층의 온도 차 때문에 다른 곳에 보이게 되는 현상이다.\n"</item>
+        <item>"찬 공기층은 밀도가 크고 따뜻한 공기층은 밀도가 작다.\n"</item>
+        <item>"이러한 밀도 차이는 빛이 공기를 통과하는 시간을 변화 시키는데, 밀도가 클수록 시간이 더 걸리게 된다.\n"</item>
+        <item>"이 때 공기층을 지나는 빛은 밀도가 다른 경계 면을 통과 하면서 굴절한다. 따라서 신기루는 지표면 공기와 그 위 공기 간의 온도 차가 큰 사막이나 극지방 에서 쉽게 관찰 할 수 있다.\n"</item>
+        <item>"뜨거운 여름, 사막의 지표면은 쉽게 햇볕을 받아 가열되고, 지표면 공기는 그 위층의 공기에 비해 쉽게 뜨거워진다.\n"</item>
+        <item>"뜨거운 공기는 차가운 공기에 비해 밀도가 작은데, 이러한 밀도 차이에 의해 빛이 굴절하게 된다.\n"</item>
+        <item>"나무 한 그루가 사막 위에 있다고 가정하자. 나무의 윗부분 에서 나온 빛의 일부는 직진하여 사람 눈에 곧바로 도달하므로 우리 눈에는 똑바로 선 나무가 보인다."</item>
+    </string-array>
+
+    <string-array name="paragraph_text" translatable = "false">
+        <item>"신기루는 그 자리에 없는 어떤 대상이 마치 있는 것 처럼 보이는 현상을 말한다. 신기루는 환상이나 눈속임이 아니라 원래의 대상이 공기층의 온도 차 때문에 다른 곳에 보이게 되는 현상이다.\n"</item>
+        <item>"찬 공기층은 밀도가 크고 따뜻한 공기층은 밀도가 작다. 이러한 밀도 차이는 빛이 공기를 통과하는 시간을 변화 시키는데, 밀도가 클수록 시간이 더 걸리게 된다.\n"</item>
+        <item>"이 때 공기층을 지나는 빛은 밀도가 다른 경계 면을 통과 하면서 굴절한다. 따라서 신기루는 지표면 공기와 그 위 공기 간의 온도 차가 큰 사막이나 극지방 에서 쉽게 관찰 할 수 있다.\n"</item>
+        <item>"뜨거운 여름, 사막의 지표면은 쉽게 햇볕을 받아 가열되고, 지표면 공기는 그 위층의 공기에 비해 쉽게 뜨거워진다. 뜨거운 공기는 차가운 공기에 비해 밀도가 작은데, 이러한 밀도 차이에 의해 빛이 굴절하게 된다.\n"</item>
+        <item>"나무 한 그루가 사막 위에 있다고 가정하자. 나무의 윗부분 에서 나온 빛의 일부는 직진하여 사람 눈에 곧바로 도달하므로 우리 눈에는 똑바로 선 나무가 보인다."</item>
+    </string-array>
+    <string name="default_text" translatable = "false">
+        "신기루는 그 자리에 없는 어떤 대상이 마치 있는 것 처럼 보이는 현상을 말한다. 신기루는 환상이나 눈속임이 아니라 원래의 대상이 공기층의 온도 차 때문에 다른 곳에 보이게 되는 현상이다.\n찬 공기층은 밀도가 크고 따뜻한 공기층은 밀도가 작다. 이러한 밀도 차이는 빛이 공기를 통과하는 시간을 변화 시키는데, 밀도가 클수록 시간이 더 걸리게 된다.\n이 때 공기층을 지나는 빛은 밀도가 다른 경계 면을 통과 하면서 굴절한다. 따라서 신기루는 지표면 공기와 그 위 공기 간의 온도 차가 큰 사막이나 극지방 에서 쉽게 관찰 할 수 있다.\n뜨거운 여름, 사막의 지표면은 쉽게 햇볕을 받아 가열되고, 지표면 공기는 그 위층의 공기에 비해 쉽게 뜨거워진다. 뜨거운 공기는 차가운 공기에 비해 밀도가 작은데, 이러한 밀도 차이에 의해 빛이 굴절하게 된다.\n 나무 한 그루가 사막 위에 있다고 가정하자. 나무의 윗부분 에서 나온 빛의 일부는 직진하여 사람 눈에 곧바로 도달하므로 우리 눈에는 똑바로 선 나무가 보인다."
+    </string>
 </resources>

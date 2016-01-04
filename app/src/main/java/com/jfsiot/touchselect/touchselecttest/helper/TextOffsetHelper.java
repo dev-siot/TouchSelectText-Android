@@ -12,19 +12,23 @@ import timber.log.Timber;
  */
 public class TextOffsetHelper {
 
-    public static int getOffsetTextList(List<Integer> indexList, int offset, boolean isLeft, int endIndex){
+    public static int getOffsetTextList(List<Integer> indexList, int offset, boolean isLeft, String text){
         Timber.d("pos offset : %s %s", isLeft, offset);
         for(int i = 0; i < indexList.size(); i++){
             if(indexList.get(i) >= offset){
-                if(indexList.get(i) > endIndex -1 && !isLeft)
-                    return endIndex ;
-                else if (indexList.get(i) > endIndex -1 && isLeft)
+                if(indexList.get(i) > text.length() -1 && !isLeft)
+                    return text.length() ;
+                else if (indexList.get(i) > text.length() -1 && isLeft)
                     return indexList.get(indexList.size()-2);
                 else if(isLeft && i > 0)
                     return indexList.get(i-1);
                 else if(isLeft && i == 0)
                     return 0;
-                else return indexList.get(i);
+                else {
+                    if (text.charAt(indexList.get(i)-1) == '\n')
+                        return indexList.get(i)-1;
+                    else return indexList.get(i);
+                }
             }
         }
         return 0;

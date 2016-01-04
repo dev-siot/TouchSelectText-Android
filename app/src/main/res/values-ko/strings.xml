@@ -6,4 +6,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_complete">완료</string>
+
+    <!--nav drawer name-->
+    <string name="nav_drawer_paste">메모장</string>
+    <string name="nav_drawer_default">기본</string>
+    <string name="nav_drawer_word">단어</string>
+    <string name="nav_drawer_sentence">문장</string>
+    <string name="nav_drawer_paragraph">문단</string>
+    <string name="nav_drawer_group_complex">복합 기능</string>
+    <string name="nav_drawer_group_complex_word_sentence">단어 - 문장</string>
+    <string name="nav_drawer_group_complex_word_paragraph">단어 - 문단</string>
+    <string name="nav_drawer_group_complex_sentence_paragraph">문장 - 문단</string>
 </resources>

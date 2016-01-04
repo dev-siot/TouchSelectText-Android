@@ -8,15 +8,15 @@ import com.jfsiot.touchselect.touchselecttest.activity.MainActivity;
 /**
  * Created by SSS on 2015-12-27.
  */
-public class WordFragment extends SelectableFragment implements View.OnTouchListener {
+public class ParagraphFragment extends SelectableFragment implements View.OnTouchListener {
     @Override
     public void onResume() {
         super.onResume();
-        ((MainActivity) getActivity()).getToolbar().setTitle(R.string.nav_drawer_word);
+        ((MainActivity) getActivity()).getToolbar().setTitle(R.string.nav_drawer_paragraph);
     }
 
     @Override
     protected String[] getStringArrayResourse() {
-        return getResources().getStringArray(R.array.word_text);
+        return getResources().getStringArray(R.array.paragraph_text);
     }
 }
