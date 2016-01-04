@@ -13,7 +13,6 @@ import timber.log.Timber;
 public class TextOffsetHelper {
 
     public static int getOffsetTextList(List<Integer> indexList, int offset, boolean isLeft, String text){
-        Timber.d("pos offset : %s %s", isLeft, offset);
         for(int i = 0; i < indexList.size(); i++){
             if(indexList.get(i) >= offset){
                 if(indexList.get(i) > text.length() -1 && !isLeft)

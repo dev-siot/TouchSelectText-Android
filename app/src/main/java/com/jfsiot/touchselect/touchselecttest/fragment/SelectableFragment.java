@@ -89,7 +89,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
         if(defaultTop < 0){
             defaultTop = ((int) editText.getY());
         }
-        Timber.d("touch : %s %s", editText.isTextSelectable(), editText.hasSelection());
+        Timber.d("touch : %s %s %s %s", editText.isTextSelectable(), editText.hasSelection(), editText.getSelectionStart(), editText.getSelectionEnd());
         if(event.getAction() == MotionEvent.ACTION_DOWN){
             this.downTime = event.getEventTime();
             this.posDownX = ((int) event.getX());
@@ -102,7 +102,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
         float diff = Math.abs(posDownX - event.getX() + posDownY - event.getY() - editText.getScrollY());
         float diffRaw = (float) Math.sqrt( Math.abs( Math.pow(posDownRawX - event.getRawX(), 2) + Math.pow(posDownRawY - event.getRawY(), 2) ) );
         float diffRawY = posDownRawY - event.getRawY();
-        if (event.getAction() == MotionEvent.ACTION_MOVE && Math.abs(diffRawY) > 10) {
+        if (event.getAction() == MotionEvent.ACTION_MOVE/* && Math.abs(diffRawY) > 10*/) {
             if(((int) (diffRawY + initScrollY)) > MAX_SCROLLABLE_Y_POSITION) {
                 this.editText.scrollTo(0, Math.max(MAX_SCROLLABLE_Y_POSITION, 0));
             }else if(((int) (diffRawY + initScrollY)) < 0){
@@ -110,15 +110,17 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
             }else{
                 this.editText.scrollTo(0, ((int) (diffRawY + initScrollY)));
             }
-        }
+        }/*else if(event.getAction() == MotionEvent.ACTION_UP && Math.abs(diffRawY) > 10){
+            TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getRawX()), ((int) (posDownRawY + initScrollY)));
+            editText.setSelection(location[1], location[1]);
+        }*/
 
 
         if (editText.hasSelection()) {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
             }else if (event.getAction() == MotionEvent.ACTION_UP && diffRaw < 20) {
                 if(event.getEventTime() - downTime < 150){
-                    TextOffsetHelper.getPositionLineOffset(location, this.editText, posDownX, posDownY);
-                    int offset, fixOffset;
+                    TextOffsetHelper.getPositionLineOffset(location, this.editText, posDownX, ((int) (posDownRawY + initScrollY)));
                     if(tabTime != 0 && event.getEventTime() - tabTime < 200){
                         tabTime = 0;
                         this.free();

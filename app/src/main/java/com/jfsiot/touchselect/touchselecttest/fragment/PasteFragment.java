@@ -39,12 +39,14 @@ public class PasteFragment extends Fragment implements OnToolbarAction{
         super.onResume();
         ((MainActivity) getActivity()).getToolbar().setTitle(R.string.nav_drawer_paste);
         ((MainActivity) getActivity()).toolbarItemVisibility(R.id.action_complete, true);
+        ((MainActivity) getActivity()).toolbarItemVisibility(R.id.action_text_swap, false);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ((MainActivity) getActivity()).toolbarItemVisibility(R.id.action_complete, false);
+        ((MainActivity) getActivity()).toolbarItemVisibility(R.id.action_text_swap, true);
     }
 
     @Override
