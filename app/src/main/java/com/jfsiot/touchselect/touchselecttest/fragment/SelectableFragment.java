@@ -178,8 +178,9 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
         if(isLeft) {
             offset = TextOffsetHelper.getOffsetTextList(mainIndexList, letterOffset, true, editText.getText().toString());
             fixOffset = editText.getSelectionEnd();
-            if (Math.abs(editText.getSelectionStart() - offset) > 1)
+            if (Math.abs(editText.getSelectionStart() - offset) > 1) {
                 editText.setSelection(offset, fixOffset);
+            }
         }else{
             offset = TextOffsetHelper.getOffsetTextList(mainIndexList, letterOffset, false, editText.getText().toString());
             fixOffset = editText.getSelectionStart();
