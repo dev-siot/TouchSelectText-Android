@@ -1,8 +1,11 @@
 package com.jfsiot.touchselect.touchselecttest.helper;
 
+import android.text.Layout;
 import android.widget.EditText;
 
 import java.util.List;
+
+import timber.log.Timber;
 
 /**
  * Created by SSS on 2016-01-03.
@@ -81,6 +84,12 @@ public class TextOffsetHelper {
         int y = (bottom - top)/2 + top;
         location[0] = x;
         location[1] = y;
+    }
+
+
+    public static int getViewTotalHeight(EditText editText){
+        Layout layout = editText.getLayout();
+        return editText.getLineHeight() * layout.getLineCount();
     }
 
     public static void getPositionLineOffset(int location[], EditText editText, int x, int y){

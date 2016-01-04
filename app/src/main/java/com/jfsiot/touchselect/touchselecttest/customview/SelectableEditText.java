@@ -91,21 +91,6 @@ public class SelectableEditText extends EditText{
         endCursor.hide();
     }
 
-    @Override
-    protected void onSelectionChanged(int selStart, int selEnd) {
-        super.onSelectionChanged(selStart, selEnd);
-        if(listener != null && this.hasSelection()) {
-            this.listener.onSelectionChanged(selStart, selEnd);
-        }
-    }
-    private OnSelectionChanged listener;
-    public void setOnSelectionChanged(OnSelectionChanged listener){
-        this.listener = listener;
-    }
-
-    public interface OnSelectionChanged{
-        void onSelectionChanged(int start, int end);
-    }
     class ExpandButton extends View{
         private int posX, posY, mWidth, mHeight;
         private int mHotspotX, mHotspotY;
@@ -182,14 +167,6 @@ public class SelectableEditText extends EditText{
             show = false;
             window.dismiss();
         }
-
-        private int mAdjustX;
-        private int mAdjustY;
-
-        private int mOldX;
-        private int mOldY;
-        private boolean mIsDragging;
-
 
     }
 
