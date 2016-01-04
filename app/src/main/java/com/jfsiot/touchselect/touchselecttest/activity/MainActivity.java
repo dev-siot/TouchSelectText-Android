@@ -24,7 +24,7 @@ import com.jfsiot.touchselect.touchselecttest.fragment.WordFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
-    private int textKindOf = 1;
+    private int textKindOf = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +45,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.getFragmentManager().beginTransaction()
                 .add(R.id.activity_container, fragment)
                 .commit();
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
 
     }
 
     public Toolbar getToolbar(){
         return toolbar;
+    }
+
+    public MenuItem toolbarItemVisibility(int itemRes, boolean visibility){
+        return this.toolbar.getMenu().findItem(itemRes).setVisible(visibility);
     }
 
     @Override
@@ -75,15 +84,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        Fragment fragment;
+        Fragment fragment = getFragmentManager().findFragmentById(R.id.activity_container);
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_complete) {
-            fragment = getFragmentManager().findFragmentById(R.id.activity_container);
             if(fragment instanceof OnToolbarAction)
                 ((OnToolbarAction) fragment).OnToolbarAction(1);
             return true;
         }else if (id == R.id.action_text_swap){
             this.textKindOf ^= 1;
+            toolbar.getMenu().findItem(R.id.action_text_swap).setTitle(String.format(getString(R.string.action_swap), textKindOf^1));
+            getFragmentManager().beginTransaction().replace(R.id.activity_container, fragment).commit();
         }
 
         return super.onOptionsItemSelected(item);

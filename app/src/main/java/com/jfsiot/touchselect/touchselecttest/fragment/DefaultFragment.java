@@ -26,6 +26,12 @@ public class DefaultFragment extends Fragment {
         View view = inflater.inflate(R.layout.content_main, container, false);
         ButterKnife.bind(this, view);
 
+
+        String text = "";
+        for(String str : ((MainActivity) getActivity()).getTextSourse(0)){
+            text += str;
+        }
+        this.editText.setText(text);
         editText.setText(getResources().getString(R.string.default_text));
         editText.setTextIsSelectable(true);
         return view;

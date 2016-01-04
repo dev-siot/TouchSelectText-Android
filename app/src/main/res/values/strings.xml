@@ -6,7 +6,8 @@
 
     <string name="action_settings">Settings</string>
     <string name="action_complete">Complete</string>
-    <string name="action_swap">Change</string>
+    <string name="action_swap">Change to %s</string>
+    <string name="action_swap_first">Change to 1</string>
 
     <!--nav drawer name-->
     <string name="nav_drawer_paste">Paste</string>
@@ -219,6 +220,297 @@
         <item>"보인다."</item>
     </string-array>
     <string-array name="word_text2" translatable = "false">
+        <item>" "</item>
+        <item>" "</item>
+        <item>"앱"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"개발"</item>
+        <item>"하려는"</item>
+        <item>" "</item>
+        <item>"사람들"</item>
+        <item>"은"</item>
+        <item>" "</item>
+        <item>"아이디어"</item>
+        <item>"가"</item>
+        <item>" "</item>
+        <item>"넘친다."</item>
+        <item>" "</item>
+        <item>"사람들"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"여행"</item>
+        <item>" "</item>
+        <item>"준비"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"위해"</item>
+        <item>" "</item>
+        <item>"많은"</item>
+        <item>" "</item>
+        <item>"시간"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"허비"</item>
+        <item>"하는"</item>
+        <item>" "</item>
+        <item>"것"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"보면"</item>
+        <item>" "</item>
+        <item>"한"</item>
+        <item>" "</item>
+        <item>"번"</item>
+        <item>"에"</item>
+        <item>" "</item>
+        <item>"여행"</item>
+        <item>" "</item>
+        <item>"코스"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"짜"</item>
+        <item>" "</item>
+        <item>"주는"</item>
+        <item>" "</item>
+        <item>"앱"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"만들어"</item>
+        <item>" "</item>
+        <item>"보고"</item>
+        <item>" "</item>
+        <item>"싶어"</item>
+        <item>" "</item>
+        <item>"한다."</item>
+        <item>" "</item>
+        <item>"도심"</item>
+        <item>"에서"</item>
+        <item>" "</item>
+        <item>"주차장"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"못"</item>
+        <item>" "</item>
+        <item>"찾아"</item>
+        <item>" "</item>
+        <item>"헤메는"</item>
+        <item>" "</item>
+        <item>"사람들"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"보면"</item>
+        <item>" "</item>
+        <item>"주차장"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"쉽게"</item>
+        <item>" "</item>
+        <item>"찾아"</item>
+        <item>" "</item>
+        <item>"주는"</item>
+        <item>" "</item>
+        <item>"앱"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"만들어"</item>
+        <item>" "</item>
+        <item>"보고"</item>
+        <item>" "</item>
+        <item>"싶어"</item>
+        <item>" "</item>
+        <item>"한다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"그러나"</item>
+        <item>" "</item>
+        <item>"막상"</item>
+        <item>" "</item>
+        <item>"앱"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"개발"</item>
+        <item>"하려"</item>
+        <item>" "</item>
+        <item>"할"</item>
+        <item>" "</item>
+        <item>"때"</item>
+        <item>" "</item>
+        <item>"부딪히는"</item>
+        <item>" "</item>
+        <item>"여러"</item>
+        <item>" "</item>
+        <item>"난관"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"있다."</item>
+        <item>" "</item>
+        <item>"여행지"</item>
+        <item>"나"</item>
+        <item>" "</item>
+        <item>"주차장"</item>
+        <item>"에"</item>
+        <item>" "</item>
+        <item>"대한"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"모으는"</item>
+        <item>" "</item>
+        <item>"것"</item>
+        <item>"도"</item>
+        <item>" "</item>
+        <item>"문제"</item>
+        <item>"이고,"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>"를"</item>
+        <item>"지속적"</item>
+        <item>"으로"</item>
+        <item>" "</item>
+        <item>"갱신"</item>
+        <item>"하는"</item>
+        <item>" "</item>
+        <item>"것"</item>
+        <item>"도"</item>
+        <item>" "</item>
+        <item>"문제"</item>
+        <item>"이다."</item>
+        <item>" "</item>
+        <item>"이런"</item>
+        <item>" "</item>
+        <item>"문제"</item>
+        <item>"때문에"</item>
+        <item>" "</item>
+        <item>"결국"</item>
+        <item>" "</item>
+        <item>"아이디어"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"포기"</item>
+        <item>"하는"</item>
+        <item>" "</item>
+        <item>"경우"</item>
+        <item>"가"</item>
+        <item>" "</item>
+        <item>"많다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"그러나"</item>
+        <item>" "</item>
+        <item>"이제는"</item>
+        <item>" "</item>
+        <item>"아이디어"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"포기"</item>
+        <item>"하지"</item>
+        <item>"않아도"</item>
+        <item>" "</item>
+        <item>"된다."</item>
+        <item>" "</item>
+        <item>"바로"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>"가"</item>
+        <item>" "</item>
+        <item>"있기"</item>
+        <item>" "</item>
+        <item>"때문이다."</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>"는"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"기관"</item>
+        <item>"에서"</item>
+        <item>" "</item>
+        <item>"생성"</item>
+        <item>",\n"</item>
+        <item>"취득"</item>
+        <item>"하여"</item>
+        <item>" "</item>
+        <item>"관리"</item>
+        <item>"하고"</item>
+        <item>" "</item>
+        <item>"있는"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>" "</item>
+        <item>"중"</item>
+        <item>",\n"</item>
+        <item>"전자적"</item>
+        <item>" "</item>
+        <item>"방식"</item>
+        <item>"으로"</item>
+        <item>" "</item>
+        <item>"처리"</item>
+        <item>" "</item>
+        <item>"되어"</item>
+        <item>" "</item>
+        <item>"누구나"</item>
+        <item>" "</item>
+        <item>"이용"</item>
+        <item>"할"</item>
+        <item>" "</item>
+        <item>"수"</item>
+        <item>" "</item>
+        <item>"있도록"</item>
+        <item>" "</item>
+        <item>"국민들"</item>
+        <item>"에게"</item>
+        <item>" "</item>
+        <item>"제공"</item>
+        <item>"된"</item>
+        <item>" "</item>
+        <item>"것"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"말한다."</item>
+        <item>" "</item>
+        <item>"현재"</item>
+        <item>" "</item>
+        <item>"정부"</item>
+        <item>"에서는"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>" "</item>
+        <item>"포털"</item>
+        <item>" "</item>
+        <item>"사이트"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"개설"</item>
+        <item>"하여"</item>
+        <item>" "</item>
+        <item>"국민들"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"쉽게"</item>
+        <item>" "</item>
+        <item>"이용"</item>
+        <item>"할"</item>
+        <item>" "</item>
+        <item>"수"</item>
+        <item>" "</item>
+        <item>"있도록"</item>
+        <item>" "</item>
+        <item>"하고"</item>
+        <item>" "</item>
+        <item>"있다."</item>
+
+    </string-array>
+    <string-array name="word_text2_temp" translatable = "false">
         <item>"\n"</item>
         <item>"\n"</item>
         <item>"앱"</item>
@@ -509,6 +801,595 @@
         <item>"있다."</item>
 
     </string-array>
+    <string-array name="word_text3" translatable = "false">
+        <item>" "</item>
+        <item>" "</item>
+        <item>"앱"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"개발"</item>
+        <item>"하려는"</item>
+        <item>" "</item>
+        <item>"사람들"</item>
+        <item>"은"</item>
+        <item>" "</item>
+        <item>"아이디어"</item>
+        <item>"가"</item>
+        <item>" "</item>
+        <item>"넘친다."</item>
+        <item>" "</item>
+        <item>"사람들"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"여행"</item>
+        <item>" "</item>
+        <item>"준비"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"위해"</item>
+        <item>" "</item>
+        <item>"많은"</item>
+        <item>" "</item>
+        <item>"시간"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"허비"</item>
+        <item>"하는"</item>
+        <item>" "</item>
+        <item>"것"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"보면"</item>
+        <item>" "</item>
+        <item>"한"</item>
+        <item>" "</item>
+        <item>"번"</item>
+        <item>"에"</item>
+        <item>" "</item>
+        <item>"여행"</item>
+        <item>" "</item>
+        <item>"코스"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"짜"</item>
+        <item>" "</item>
+        <item>"주는"</item>
+        <item>" "</item>
+        <item>"앱"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"만들어"</item>
+        <item>" "</item>
+        <item>"보고"</item>
+        <item>" "</item>
+        <item>"싶어"</item>
+        <item>" "</item>
+        <item>"한다."</item>
+        <item>" "</item>
+        <item>"도심"</item>
+        <item>"에서"</item>
+        <item>" "</item>
+        <item>"주차장"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"못"</item>
+        <item>" "</item>
+        <item>"찾아"</item>
+        <item>" "</item>
+        <item>"헤메는"</item>
+        <item>" "</item>
+        <item>"사람들"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"보면"</item>
+        <item>" "</item>
+        <item>"주차장"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"쉽게"</item>
+        <item>" "</item>
+        <item>"찾아"</item>
+        <item>" "</item>
+        <item>"주는"</item>
+        <item>" "</item>
+        <item>"앱"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"만들어"</item>
+        <item>" "</item>
+        <item>"보고"</item>
+        <item>" "</item>
+        <item>"싶어"</item>
+        <item>" "</item>
+        <item>"한다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"그러나"</item>
+        <item>" "</item>
+        <item>"막상"</item>
+        <item>" "</item>
+        <item>"앱"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"개발"</item>
+        <item>"하려"</item>
+        <item>" "</item>
+        <item>"할"</item>
+        <item>" "</item>
+        <item>"때"</item>
+        <item>" "</item>
+        <item>"부딪히는"</item>
+        <item>" "</item>
+        <item>"여러"</item>
+        <item>" "</item>
+        <item>"난관"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"있다."</item>
+        <item>" "</item>
+        <item>"여행지"</item>
+        <item>"나"</item>
+        <item>" "</item>
+        <item>"주차장"</item>
+        <item>"에"</item>
+        <item>" "</item>
+        <item>"대한"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"모으는"</item>
+        <item>" "</item>
+        <item>"것"</item>
+        <item>"도"</item>
+        <item>" "</item>
+        <item>"문제"</item>
+        <item>"이고,"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>"를"</item>
+        <item>"지속적"</item>
+        <item>"으로"</item>
+        <item>" "</item>
+        <item>"갱신"</item>
+        <item>"하는"</item>
+        <item>" "</item>
+        <item>"것"</item>
+        <item>"도"</item>
+        <item>" "</item>
+        <item>"문제"</item>
+        <item>"이다."</item>
+        <item>" "</item>
+        <item>"이런"</item>
+        <item>" "</item>
+        <item>"문제"</item>
+        <item>"때문에"</item>
+        <item>" "</item>
+        <item>"결국"</item>
+        <item>" "</item>
+        <item>"아이디어"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"포기"</item>
+        <item>"하는"</item>
+        <item>" "</item>
+        <item>"경우"</item>
+        <item>"가"</item>
+        <item>" "</item>
+        <item>"많다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"그러나"</item>
+        <item>" "</item>
+        <item>"이제는"</item>
+        <item>" "</item>
+        <item>"아이디어"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"포기"</item>
+        <item>"하지"</item>
+        <item>"않아도"</item>
+        <item>" "</item>
+        <item>"된다."</item>
+        <item>" "</item>
+        <item>"바로"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>"가"</item>
+        <item>" "</item>
+        <item>"있기"</item>
+        <item>" "</item>
+        <item>"때문이다."</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>"는"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"기관"</item>
+        <item>"에서"</item>
+        <item>" "</item>
+        <item>"생성"</item>
+        <item>",\n"</item>
+        <item>"취득"</item>
+        <item>"하여"</item>
+        <item>" "</item>
+        <item>"관리"</item>
+        <item>"하고"</item>
+        <item>" "</item>
+        <item>"있는"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>" "</item>
+        <item>"중"</item>
+        <item>",\n"</item>
+        <item>"전자적"</item>
+        <item>" "</item>
+        <item>"방식"</item>
+        <item>"으로"</item>
+        <item>" "</item>
+        <item>"처리"</item>
+        <item>" "</item>
+        <item>"되어"</item>
+        <item>" "</item>
+        <item>"누구나"</item>
+        <item>" "</item>
+        <item>"이용"</item>
+        <item>"할"</item>
+        <item>" "</item>
+        <item>"수"</item>
+        <item>" "</item>
+        <item>"있도록"</item>
+        <item>" "</item>
+        <item>"국민들"</item>
+        <item>"에게"</item>
+        <item>" "</item>
+        <item>"제공"</item>
+        <item>"된"</item>
+        <item>" "</item>
+        <item>"것"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"말한다."</item>
+        <item>" "</item>
+        <item>"현재"</item>
+        <item>" "</item>
+        <item>"정부"</item>
+        <item>"에서는"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>" "</item>
+        <item>"포털"</item>
+        <item>" "</item>
+        <item>"사이트"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"개설"</item>
+        <item>"하여"</item>
+        <item>" "</item>
+        <item>"국민들"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"쉽게"</item>
+        <item>" "</item>
+        <item>"이용"</item>
+        <item>"할"</item>
+        <item>" "</item>
+        <item>"수"</item>
+        <item>" "</item>
+        <item>"있도록"</item>
+        <item>" "</item>
+        <item>"하고"</item>
+        <item>" "</item>
+        <item>"있다."</item>
+        <item>"\n\n"</item>
+
+
+        <item>" "</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터" </item>
+        <item>" "</item>
+        <item>"포털"</item>
+        <item>" "</item>
+        <item>"사이트"</item>
+        <item>"에서는"</item>
+        <item>" "</item>
+        <item>"800여 개"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"기관"</item>
+        <item>"에서"</item>
+        <item>" "</item>
+        <item>"생성한"</item>
+        <item>" "</item>
+        <item>"15,000여"</item>
+        <item>" "</item>
+        <item>"건의"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"제공"</item>
+        <item>"하고"</item>
+        <item>" "</item>
+        <item>"있으며,"</item>
+        <item>" "</item>
+        <item>"제공"</item>
+        <item>"하는"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>"의"</item>
+        <item>" "</item>
+        <item>"양"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"꾸준히"</item>
+        <item>" "</item>
+        <item>"늘리고"</item>
+        <item>" "</item>
+        <item>"있다."</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>"가"</item>
+        <item>" "</item>
+        <item>"가진"</item>
+        <item>" "</item>
+        <item>"앱"</item>
+        <item>" "</item>
+        <item>"개발"</item>
+        <item>" "</item>
+        <item>"분야"</item>
+        <item>"에서의"</item>
+        <item>" "</item>
+        <item>"장점"</item>
+        <item>"은"</item>
+        <item>" "</item>
+        <item>"크게"</item>
+        <item>" "</item>
+        <item>"두 가지"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"들 수"</item>
+        <item>"있다."</item>
+        <item>"\n\n"</item>
+
+        <item>" "</item>
+        <item>" "</item>
+        <item>"먼저"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>"는"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"기관"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"국민들"</item>
+        <item>"에게"</item>
+        <item>" "</item>
+        <item>"편의"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"제공"</item>
+        <item>"하기"</item>
+        <item>" "</item>
+        <item>"위해"</item>
+        <item>" "</item>
+        <item>"시행"</item>
+        <item>"한"</item>
+        <item>" "</item>
+        <item>"정책"</item>
+        <item>"의"</item>
+        <item>" "</item>
+        <item>"산출물"</item>
+        <item>"이기"</item>
+        <item>" "</item>
+        <item>"때문"</item>
+        <item>"에"</item>
+        <item>" "</item>
+        <item>"실생활"</item>
+        <item>"과"</item>
+        <item>" "</item>
+        <item>"밀접"</item>
+        <item>"하게"</item>
+        <item>" "</item>
+        <item>"관련"</item>
+        <item>"된"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>"가"</item>
+        <item>" "</item>
+        <item>"많다는"</item>
+        <item>"점"</item>
+        <item>"이다."</item>
+        <item>" "</item>
+        <item>"앱 개발자"</item>
+        <item>" "</item>
+        <item>"들의"</item>
+        <item>" "</item>
+        <item>"아이디어"</item>
+        <item>"는"</item>
+        <item>" "</item>
+        <item>"대개"</item>
+        <item>" "</item>
+        <item>"앞"</item>
+        <item>"에서"</item>
+        <item>" "</item>
+        <item>"언급"</item>
+        <item>"한"</item>
+        <item>" "</item>
+        <item>"것"</item>
+        <item>"처럼"</item>
+        <item>" "</item>
+        <item>"사람들"</item>
+        <item>"의"</item>
+        <item>" "</item>
+        <item>"실생활"</item>
+        <item>"에"</item>
+        <item>" "</item>
+        <item>"편의"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"제공"</item>
+        <item>"하기"</item>
+        <item>" "</item>
+        <item>"위한"</item>
+        <item>" "</item>
+        <item>"것들"</item>
+        <item>"이다."</item>
+        <item>" "</item>
+        <item>"그래서"</item>
+        <item>" "</item>
+        <item>"만약"</item>
+        <item>" "</item>
+        <item>"여행"</item>
+        <item>" "</item>
+        <item>"앱"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"만들고자"</item>
+        <item>" "</item>
+        <item>"한다면"</item>
+        <item>" "</item>
+        <item>"한국관광공사"</item>
+        <item>"의"</item>
+        <item>" "</item>
+        <item>"여행"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>"에서,"</item>
+        <item>" "</item>
+        <item>"주차장"</item>
+        <item>" "</item>
+        <item>"앱을"</item>
+        <item>" "</item>
+        <item>"만들고자"</item>
+        <item>" "</item>
+        <item>"한다면"</item>
+        <item>" "</item>
+        <item>"지방"</item>
+        <item>" "</item>
+        <item>"자치"</item>
+        <item>" "</item>
+        <item>"단체"</item>
+        <item>"의"</item>
+        <item>" "</item>
+        <item>"주차장"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>"에서"</item>
+        <item>" "</item>
+        <item>"필요"</item>
+        <item>"한"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"얻을"</item>
+        <item>" "</item>
+        <item>"수"</item>
+        <item>" "</item>
+        <item>"있다."</item>
+        <item>"\n\n"</item>
+
+        <item>" "</item>
+        <item>" "</item>
+        <item>"두 번째"</item>
+        <item>"로"</item>
+        <item>" "</item>
+        <item>"공공"</item>
+        <item>" "</item>
+        <item>"데이터"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"이용"</item>
+        <item>"하는"</item>
+        <item>" "</item>
+        <item>"데"</item>
+        <item>"에는"</item>
+        <item>" "</item>
+        <item>"비용"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"거의"</item>
+        <item>" "</item>
+        <item>"들지"</item>
+        <item>" "</item>
+        <item>"않기"</item>
+        <item>" "</item>
+        <item>"때문에,"</item>
+        <item>" "</item>
+        <item>"정보"</item>
+        <item>"를"</item>
+        <item>" "</item>
+        <item>"수집"</item>
+        <item>"하고"</item>
+        <item>" "</item>
+        <item>"갱신"</item>
+        <item>"할"</item>
+        <item>" "</item>
+        <item>"때"</item>
+        <item>" "</item>
+        <item>"소요"</item>
+        <item>" "</item>
+        <item>"되는"</item>
+        <item>" "</item>
+        <item>"비용"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"줄일"</item>
+        <item>" "</item>
+        <item>"수"</item>
+        <item>" "</item>
+        <item>"있다는"</item>
+        <item>" "</item>
+        <item>"점이다."</item>
+        <item>" "</item>
+        <item>"그래서"</item>
+        <item>" "</item>
+        <item>"개인"</item>
+        <item>"들도"</item>
+        <item>" "</item>
+        <item>"비용"</item>
+        <item>"에"</item>
+        <item>" "</item>
+        <item>"대한"</item>
+        <item>" "</item>
+        <item>"부담"</item>
+        <item>" "</item>
+        <item>"없이"</item>
+        <item>" "</item>
+        <item>"쉽게"</item>
+        <item>" "</item>
+        <item>"앱을"</item>
+        <item>" "</item>
+        <item>"만들"</item>
+        <item>" "</item>
+        <item>"수"</item>
+        <item>" "</item>
+        <item>"있다."</item>
+        <item>"\n\n"</item>
+    </string-array>
 
     <string-array name="sentence_text" translatable = "false">
         <item>"신기루는 그 자리에 없는 어떤 대상이 마치 있는 것 처럼 보이는 현상을 말한다.\n"</item>
@@ -522,8 +1403,77 @@
     </string-array>
 
     <string-array name="sentence_text2" translatable = "false">
+        <item>" "</item>
+        <item>" "</item>
+        <item>"앱을 개발하려는 사람들은 아이디어가 넘친다."</item>
+        <item>" "</item>
+        <item>"사람들이 여행 준비를 위해 많은 시간을 허비하는 것을 보면 한 번에 여행 코스를 짜 주는 앱을 만들어 보고 싶어 한다."</item>
+        <item>" "</item>
+        <item>"도심에서 주차장을 못 찾아 헤매는 사람들을 보면 주차장을 쉽게 찾아 주는 앱을 만들어 보고 싶어 한다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"그러나 막상 앱을 개발하려 할 때 부딪히는 여러 난관이 있다."</item>
+        <item>" "</item>
+        <item>"여행지나 주차장에 대한 정보를 모으는 것도 문제이고, 정보를 지속적으로 갱신하는 것도 문제이다."</item>
+        <item>" "</item>
+        <item>"이런 문제 때문에 결국 아이디어를 포기하는 경우가 많다"</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"그러나 이제는 아이디어를 포기하지 않아도 된다."</item>
+        <item>" "</item>
+        <item>"바로 공공 데이터가 있기 때문이다."</item>
+        <item>" "</item>
+        <item>"공공 데이터는 공공 기관에서 생성, 취득하여 관리하고 있는 정보 중, 전자적 방식으로 처리 되어 누구나 이용할 수 있도록 국민들에게 제공된 것을 말한다."</item>
+        <item>" "</item>
+        <item>"현재 정부에서는 공공 데이터 포털 사이트를 개설하여 국민들이 쉽게 이용할 수 있도록 하고 있다. "</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"공공 데이터 포털 사이트에서는 800여 개 공공 기관에서 생성한 15,000여 건의 공공 데이터를 제공하고 있으며, 제공하는 공공 데이터의 양을 꾸준히 늘리고 있다."</item>
+        <item>" "</item>
+        <item>"공공 데이터가 가진 앱 개발 분야에서의 장점은 크게 두 가지를 들 수 있다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"먼저 공공 데이터는 공공 기관이 국민들에게 편의를 제공하기 위해 시행한 정책의 산출물이기 때문에 실생활과 밀접하게 관련된 정보가 많다는 점이다."</item>
+        <item>" "</item>
+        <item>"앱 개발자 들의 아이디어는 대개 앞에서 언급한 것처럼 사람들의 실생활에 편의를 제공하기 위한 것들이다."</item>
+        <item>" "</item>
+        <item>"그래서 만약 여행 앱을 만들고자 한다면 한국관광공사의 여행 정보에서, 주차장 앱을 만들고자 한다면 지방 자치 단체의 주차장 정보에서 필요한 정보를 얻을 수 있다"</item>
+        <item>" "</item>
+        <item>"두 번째로 공공 데이터를 이용하는 데에는 비용이 거의 들지 않기 때문에, 정보를 수집하고 갱신할 때 소요 되는 비용을 줄일 수 있다는 점이다."</item>
+        <item>" "</item>
+        <item>"그래서 개인들도 비용에 대한 부담 없이 쉽게 앱을 만들 수 있다."</item>
+
     </string-array>
     <string-array name="paragraph_text2" translatable = "false">
+        <item>" "</item>
+        <item>" "</item>
+        <item>"앱을 개발하려는 사람들은 아이디어가 넘친다. 사람들이 여행 준비를 위해 많은 시간을 허비하는 것을 보면 한 번에 여행 코스를 짜 주는 앱을 만들어 보고 싶어 한다. 도심에서 주차장을 못 찾아 헤매는 사람들을 보면 주차장을 쉽게 찾아 주는 앱을 만들어 보고 싶어 한다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"그러나 막상 앱을 개발하려 할 때 부딪히는 여러 난관이 있다. 여행지나 주차장에 대한 정보를 모으는 것도 문제이고, 정보를 지속적으로 갱신하는 것도 문제이다. 이런 문제 때문에 결국 아이디어를 포기하는 경우가 많다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"그러나 이제는 아이디어를 포기하지 않아도 된다. 바로 공공 데이터가 있기 때문이다. 공공 데이터는 공공 기관에서 생성, 취득하여 관리하고 있는 정보 중, 전자적 방식으로 처리 되어 누구나 이용할 수 있도록 국민들에게 제공된 것을 말한 다. 현재 정부에서는 공공 데이터 포털 사이트를 개설하여 국민들이 쉽게 이용할 수 있도록 하고 있다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"공공 데이터 포털 사이트에서는 800여 개 공공 기관에서 생성한 15,000여 건의 공공 데이터를 제공하고 있으며, 제공하는 공공 데이터의 양을 꾸준히 늘리고 있다. 공공 데이터가 가진 앱 개발 분야에서의 장점은 크게 두 가 지를 들 수 있다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"먼저 공공 데이터는 공공 기관이 국민들에게 편의를 제공하기 위해 시행한 정책의 산출물이기 때문에 실생활과 밀접하게 관련된 정보가 많다는 점이다. 앱 개발자 들의 아이디어는 대개 앞에서 언급한 것처럼 사람들의 실생활에 편의를 제공하기 위한 것들이다. 그래서 만약 여행 앱을 만들 고자 한다면 한국관광공사의 여행 정보에서, 주차장 앱을 만들 고자 한다면 지방 자치 단체의 주차장 정보에서 필요한 정보를 얻을 수 있다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"두 번째로 공공 데이터를 이용하는 데에는 비용이 거의 들지 않기 때문에, 정보를 수집하고 갱신할 때 소요 되는 비용을 줄일 수 있다는 점이다. 그래서 개인들도 비용에 대한 부담 없이 쉽게 앱을 만들 수 있다."</item>
+        <item>"\n\n"</item>
+
     </string-array>
     <string-array name="paragraph_text" translatable = "false">
         <item>"신기루는 그 자리에 없는 어떤 대상이 마치 있는 것 처럼 보이는 현상을 말한다. 신기루는 환상이나 눈속임이 아니라 원래의 대상이 공기층의 온도 차 때문에 다른 곳에 보이게 되는 현상이다.\n"</item>

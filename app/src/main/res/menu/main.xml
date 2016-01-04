@@ -5,10 +5,11 @@
         android:id="@+id/action_complete"
         android:orderInCategory="100"
         android:title="@string/action_complete"
+        android:visible="false"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_text_swap"
-        android:orderInCategory="100"
-        android:title="@string/action_swap"
+        android:orderInCategory="101"
+        android:title="@string/action_swap_first"
         app:showAsAction="ifRoom" />
 </menu>
