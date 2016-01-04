@@ -13,16 +13,6 @@ import timber.log.Timber;
 public class TextOffsetHelper {
 
     public static int getOffsetTextList(List<Integer> indexList, int offset, boolean isLeft, int endIndex){
-//        int value = 0;
-//        if(offset < indexList.get(0))
-//            return 0;
-//        for(int i : indexList){
-//            if(i > offset){
-//                value = i;
-//                break;
-//            }
-//            value = i;
-//        }
         Timber.d("pos offset : %s %s", isLeft, offset);
         for(int i = 0; i < indexList.size(); i++){
             if(indexList.get(i) >= offset){
@@ -37,8 +27,6 @@ public class TextOffsetHelper {
                 else return indexList.get(i);
             }
         }
-//        if(value > editText.getText().length() - 1)
-//            value = editText.getText().length() - 1;
         return 0;
     }
 
@@ -78,8 +66,6 @@ public class TextOffsetHelper {
      * @param editText : Current usage
      * */
     public static void getPositionXY(int location[], EditText editText, int offset){
-//        int[] screenLocation = new int[2];
-//        editText.getLocationOnScreen(screenLocation);
         int line = editText.getLayout().getLineForOffset(offset);
         int top = editText.getLayout().getLineBottom(line);
         int bottom = editText.getLayout().getLineTop(line);

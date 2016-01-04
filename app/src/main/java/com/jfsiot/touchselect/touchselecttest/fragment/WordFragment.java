@@ -29,15 +29,9 @@ import timber.log.Timber;
  */
 public class WordFragment extends Fragment implements View.OnTouchListener {
     @Bind(R.id.main_edit) protected SelectableEditText editText;
-    @Bind(R.id.select_button) protected TextView selectButton;
     @Bind(R.id.main_container) protected RelativeLayout container;
-    private List<TextView> dataTextViewList;
 
-    private int savedStart = -1, savedEnd = -1;
-    private String[] strList = {"hello world.", "  ", "good mor.ning?", "world .", "  ", "gooooooood", " ", "morning ", " afternoon ", " evening? ", "world", ".", "  ", "gooddd mor.ning?"};
     private List<Integer> indexList = new ArrayList<>();
-
-    private int currentMode;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,7 +44,6 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
         View view = inflater.inflate(R.layout.content_main, container, false);
         ButterKnife.bind(this, view);
 
-        dataTextViewList = new ArrayList<>();
         String text = "";
         for(String str : getResources().getStringArray(R.array.word_text)){
             text += str;
@@ -67,51 +60,25 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
         super.onResume();
         this.editText.setOnTouchListener(this);
         free();
-        currentMode = 0;
-        selectButton.setText("normal handle");
-        selectButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (currentMode > 2) currentMode = 0;
-                else currentMode++;
-
-                switch (currentMode) {
-                    case 0:
-                        selectButton.setText("normal handle");
-                        break;
-                    case 1:
-                        selectButton.setText("jump handle");
-                        break;
-                }
-
-            }
-        });
     }
 
     public void free(){
         posDownX = -1;
         posDownY = -1;
-        offsetDownStart = -1;
-        offstDownEnd = -1;
         this.editText.setTextIsSelectable(false);
         this.editText.clearFocus();
     }
 
-
     private int posDownX, posDownY;
     private float initScrollY;
-    private int offsetDownStart, offstDownEnd;
     private long downTime, tabTime = 0;
     private int MAX_SCROLLABLE_Y_POSITION = -1;
     private float posDownRawY, posDownRawX;
     private int defaultTop = -1;
-    Boolean isStart;
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         int location[] = new int[2];
-        if(MAX_SCROLLABLE_Y_POSITION < 0) {
-        }
         if(defaultTop < 0){
             defaultTop = ((int) editText.getY());
         }
@@ -147,11 +114,8 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
         if (editText.hasSelection()) {
             Timber.d("pos has");
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                offsetDownStart = editText.getSelectionStart();
-                offstDownEnd = editText.getSelectionEnd();
                 Timber.d("pos : %s %s", posDownY, diff);
                 Timber.d("pos height %s %s", editText.getBottom(), editText.getHeight());
-//                return true;
             }else if (event.getAction() == MotionEvent.ACTION_UP && diffRaw < 20) {
                 Timber.d("pos up");
                 if(event.getEventTime() - downTime < 150){
