@@ -6,7 +6,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
-import android.view.MotionEvent;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.PopupWindow;
@@ -89,6 +89,16 @@ public class SelectableEditText extends EditText{
     public void hide(){
         startCursor.hide();
         endCursor.hide();
+    }
+
+    @Override
+    public boolean dispatchKeyEventPreIme(KeyEvent event) {
+        if(event.getAction() == KeyEvent.ACTION_UP && event.getKeyCode() == KeyEvent.KEYCODE_BACK && this.hasSelection()){
+            this.clearFocus();
+            this.setTextIsSelectable(false);
+            return true;
+        }
+        return super.dispatchKeyEventPreIme(event);
     }
 
     class ExpandButton extends View{

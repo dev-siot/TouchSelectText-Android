@@ -49,39 +49,21 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
         ButterKnife.bind(this, view);
 
         dataTextViewList = new ArrayList<>();
-        editText.setLeftClick(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int value = TextOffsetHelper.jumpLeftSide(indexList, editText.getSelectionStart());
-                int start = value;
-                int end = editText.getSelectionEnd();
-                editText.setSelection(start, end);
-            }
-        });
-        editText.setRightClick(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int value = TextOffsetHelper.jumpLeftSide(indexList, editText.getSelectionEnd());
-                int start = editText.getSelectionStart();
-                int end = value;
-                editText.setSelection(start, end);
-            }
-        });
-        editText.setOnSelectionChanged(new SelectableEditText.OnSelectionChanged() {
-            @Override
-            public void onSelectionChanged(int start, int end) {
-                if (currentMode == 1) {
-                    if (savedStart < 0 && savedEnd < 0) {
-
-                    } else if (start < savedStart)
-                        editText.setSelection(TextOffsetHelper.jumpLeftSide(indexList, editText.getSelectionStart()), end);
-                    else if (end > savedEnd)
-                        editText.setSelection(start, TextOffsetHelper.jumpLeftSide(indexList, editText.getSelectionEnd()));
-                    savedStart = start;
-                    savedEnd = end;
-                }
-            }
-        });
+//        editText.setOnSelectionChanged(new SelectableEditText.OnSelectionChanged() {
+//            @Override
+//            public void onSelectionChanged(int start, int end) {
+//                if (currentMode == 1) {
+//                    if (savedStart < 0 && savedEnd < 0) {
+//
+//                    } else if (start < savedStart)
+//                        editText.setSelection(TextOffsetHelper.jumpLeftSide(indexList, editText.getSelectionStart()), end);
+//                    else if (end > savedEnd)
+//                        editText.setSelection(start, TextOffsetHelper.jumpLeftSide(indexList, editText.getSelectionEnd()));
+//                    savedStart = start;
+//                    savedEnd = end;
+//                }
+//            }
+//        });
         String text = "";
         for(String str : getResources().getStringArray(R.array.word_text)){
             text += str;
@@ -130,37 +112,61 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
 
 
     private int posDownX, posDownY;
+    private float initScrollY;
     private int offsetDownStart, offstDownEnd;
-    private boolean keepTouch;
-    private boolean moving;
     private long downTime, tabTime = 0;
+    private int MAX_SCROLLABLE_Y_POSITION = -1;
+    private float posDownRawY, posDownRawX;
     Boolean isStart;
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         int location[] = new int[2];
+        if(MAX_SCROLLABLE_Y_POSITION < 0) {
+            MAX_SCROLLABLE_Y_POSITION =  TextOffsetHelper.getViewTotalHeight(this.editText) - editText.getHeight();
+        }
         if(event.getAction() == MotionEvent.ACTION_DOWN){
             this.downTime = event.getEventTime();
             this.posDownX = ((int) event.getX());
-            this.posDownY = ((int) event.getY());
+            this.posDownY = ((int) event.getY()+editText.getScrollY());
+            this.posDownRawX = event.getRawX();
+            this.posDownRawY = event.getRawY();
+            this.initScrollY = editText.getScrollY();
         }
-        if(event.getEventTime() - downTime > 500)
-            free();
-        float diff = posDownX - event.getX() + posDownY - event.getY();
+        float diff = Math.abs(posDownX - event.getX() + posDownY - event.getY() - editText.getScrollY());
+        float diffRaw = (float) Math.sqrt( Math.abs( Math.pow(posDownRawX - event.getRawX(), 2) + Math.pow(posDownRawY - event.getRawY(), 2) ) );
+
+        float diffRawY = posDownRawY - event.getRawY();
+        Timber.d("pos scrolled rawdiffY : %s, posdown: %s, diffraw %s, current scroll %s selctable : %s", diffRawY, posDownRawY, diffRaw, initScrollY, editText.isTextSelectable());
+        if (event.getAction() == MotionEvent.ACTION_MOVE && Math.abs(diffRawY) > 10) {
+            Timber.d("pos block!");
+            if(((int) (diffRawY + initScrollY)) > MAX_SCROLLABLE_Y_POSITION) {
+                this.editText.scrollTo(0, MAX_SCROLLABLE_Y_POSITION);
+            }else if(((int) (diffRawY + initScrollY)) < 0){
+                this.editText.scrollTo(0, 0);
+            }else{
+                this.editText.scrollTo(0, ((int) (diffRawY + initScrollY)));
+            }
+        }
+
+
         if (editText.hasSelection()) {
+            Timber.d("pos has");
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 offsetDownStart = editText.getSelectionStart();
                 offstDownEnd = editText.getSelectionEnd();
-                keepTouch = false;
-                return true;
-            }
-            if (event.getAction() == MotionEvent.ACTION_UP && diff < 20) {
+                Timber.d("pos : %s %s", posDownY, diff);
+                Timber.d("pos height %s %s", editText.getBottom(), editText.getHeight());
+//                return true;
+            }else if (event.getAction() == MotionEvent.ACTION_UP && diffRaw < 20) {
+                Timber.d("pos up");
                 if(event.getEventTime() - downTime < 150){
-                    TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getX()), ((int) event.getY()));
+                    TextOffsetHelper.getPositionLineOffset(location, this.editText, posDownX, posDownY);
                     int offset, fixOffset;
                     if(tabTime != 0 && event.getEventTime() - tabTime < 200){
                         tabTime = 0;
                         this.free();
+                        Timber.d("pos free");
                     }else {
                         tabTime = event.getEventTime();
 
@@ -168,40 +174,58 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
                          * Change selection range
                          */
                         float centerOfSelection =  editText.getSelectionStart() + (editText.getSelectionEnd() - editText.getSelectionStart()) / 2;
-                        Timber.d("center : %s %s %s", editText.getSelectionStart(), centerOfSelection, editText.getSelectionEnd());
+                        Timber.d("pos center : %s", centerOfSelection);
                         if (location[1] <= centerOfSelection) {
                             offset = TextOffsetHelper.getOffsetTextList(indexList, location[1], true, editText.getText().length() - 1);
                             fixOffset = editText.getSelectionEnd();
-                            editText.setSelection(offset, fixOffset);
+                            if(Math.abs(editText.getSelectionStart() - offset) > 1) editText.setSelection(offset, fixOffset);
+                            Timber.d("pos start");
                         } else if (location[1] > centerOfSelection) {
                             offset = TextOffsetHelper.getOffsetTextList(indexList, location[1], false, editText.getText().length() - 1);
                             fixOffset = editText.getSelectionStart();
-                            editText.setSelection(fixOffset, offset);
+                            if(Math.abs(editText.getSelectionEnd() - offset) > 1)  editText.setSelection(fixOffset, offset);
+                            Timber.d("pos end");
                         }
                     }
+                    return true;
                 }
             }
+//            else{
+//                if(event.getEventTime() - downTime > 500)
+//                    free();
+//            }
             return true;
+
+
+
         }else{
+            Timber.d("pos noneselection %s", event.getAction());
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                moving = false;
-                editText.setTextIsSelectable(true);
+                Timber.d("pos down");
+                editText.setFocusable(true);
             }
-            if (event.getEventTime() - downTime > 150) {
-                editText.setTextIsSelectable(false);
+            if (event.getEventTime() - downTime > 150 || diffRaw > 20) {
+                Timber.d("pos unselectable!");
                 free();
             }
             if(event.getAction() == MotionEvent.ACTION_MOVE) {
-                moving = true;
-            }else if(event.getAction() == MotionEvent.ACTION_UP) {
-
-                if(Math.abs(diff) < 20) {
-                    TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getX()), ((int) event.getY()));
+                Timber.d("pos move");
+                if(diffRaw< 20) {
+                    Timber.d("pos selectable!");
+                    editText.setTextIsSelectable(true);
+                }else{
+                    free();
+                }
+            }else if (event.getAction() == MotionEvent.ACTION_UP) {
+                if(diffRaw < 20) {
+                    Timber.d("pos up selection!");
+                    TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getX()), ((int) event.getY()+editText.getScrollY()));
                     int start = TextOffsetHelper.getOffsetTextList(indexList, location[1], true, editText.getText().length() - 1)
                             , end = TextOffsetHelper.getOffsetTextList(indexList, location[1], false, editText.getText().length() - 1);
                     editText.setSelection(start, end);
                     return true;
                 }else{
+                    Timber.d("pos up!");
                     return true;
                 }
             }
