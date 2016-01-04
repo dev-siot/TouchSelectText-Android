@@ -19,12 +19,6 @@ import java.util.List;
 public class ComplexWordParagraphFragment extends SelectableFragment implements View.OnTouchListener {
     private List<Integer> wordIndexList;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        init();
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
 
     @Override
     protected void init() {
@@ -41,6 +35,7 @@ public class ComplexWordParagraphFragment extends SelectableFragment implements 
     @Override
     public void onResume() {
         super.onResume();
+        init();
         ((MainActivity) getActivity()).getToolbar().setTitle(R.string.nav_drawer_group_complex_word_paragraph);
     }
 

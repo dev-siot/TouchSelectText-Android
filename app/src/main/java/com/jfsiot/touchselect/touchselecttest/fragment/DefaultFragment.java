@@ -27,13 +27,13 @@ public class DefaultFragment extends Fragment implements OnToolbarAction {
         View view = inflater.inflate(R.layout.content_main, container, false);
         ButterKnife.bind(this, view);
 
-        init();
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        init();
         ((MainActivity) getActivity()).getToolbar().setTitle(R.string.nav_drawer_default);
     }
 

@@ -35,7 +35,6 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_main, container, false);
         ButterKnife.bind(this, view);
-        init();
 
         return view;
     }
@@ -45,6 +44,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
     @Override
     public void onResume() {
         super.onResume();
+        init();
         this.editText.setOnTouchListener(this);
     }
 
