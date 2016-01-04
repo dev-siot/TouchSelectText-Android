@@ -46,6 +46,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
         super.onResume();
         init();
         this.editText.setOnTouchListener(this);
+        this.editText.setTextIsSelectable(true);
     }
 
     @Override
@@ -70,8 +71,9 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
     protected void free(){
         posDownX = -1;
         posDownY = -1;
-        this.editText.setTextIsSelectable(false);
+        this.editText.setSelection(editText.getSelectionStart());
         this.editText.clearFocus();
+        editText.setFocusable(false);
     }
 
     protected int posDownX, posDownY;
@@ -84,12 +86,14 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         int location[] = new int[2];
-        if(!editText.isTextSelectable() && editText.hasSelection())
+        Timber.d("touch : %s %s %s %s", editText.isTextSelectable(), editText.hasSelection(), editText.getSelectionStart(), editText.getSelectionEnd());
+        if(!editText.isTextSelectable() && editText.hasSelection()) {
             free();
+            return true;
+        }
         if(defaultTop < 0){
             defaultTop = ((int) editText.getY());
         }
-        Timber.d("touch : %s %s %s %s", editText.isTextSelectable(), editText.hasSelection(), editText.getSelectionStart(), editText.getSelectionEnd());
         if(event.getAction() == MotionEvent.ACTION_DOWN){
             this.downTime = event.getEventTime();
             this.posDownX = ((int) event.getX());
@@ -120,7 +124,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
             }else if (event.getAction() == MotionEvent.ACTION_UP && diffRaw < 20) {
                 if(event.getEventTime() - downTime < 150){
-                    TextOffsetHelper.getPositionLineOffset(location, this.editText, posDownX, ((int) (posDownY + initScrollY)));
+                    TextOffsetHelper.getPositionLineOffset(location, this.editText, posDownX, ((int) (posDownY /*+ initScrollY*/)));
                     if(tabTime != 0 && event.getEventTime() - tabTime < 200){
                         tabTime = 0;
                         this.free();
@@ -133,12 +137,16 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
                         float centerOfSelection =  editText.getSelectionStart() + (editText.getSelectionEnd() - editText.getSelectionStart()) / 2;
                         if(location[1] < editText.getSelectionStart()) {
                             this.touchOuter(true , location[1]);
+                            Timber.d("touch o l");
                         } else if (location[1] > editText.getSelectionEnd()) {
                             this.touchOuter(false, location[1]);
+                            Timber.d("touch o r");
                         } else if (location[1] <= centerOfSelection) {
                             this.touchInner(true, location[1]);
+                            Timber.d("touch i l");
                         } else if (location[1] > centerOfSelection) {
                             this.touchInner(false, location[1]);
+                            Timber.d("touch o r");
                         }
                     }
                     return true;
@@ -146,17 +154,20 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
             }
             return true;
         }else{
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                editText.setFocusable(true);
-            }
-            if (event.getEventTime() - downTime > 150 || diffRaw > 20) {
-                free();
-            }
+//            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//                editText.setFocusable(true);
+//            }
+//            if (event.getEventTime() - downTime > 150 || diffRaw > 20) {
+//                free();
+//            }
             if(event.getAction() == MotionEvent.ACTION_MOVE) {
                 if(diffRaw< 20) {
-                    editText.setTextIsSelectable(true);
+                    Timber.d("touch focusable");
+                    editText.setFocusable(true);
+                    editText.setFocusableInTouchMode(true);
                 }else{
-                    free();
+                    Timber.d("touch focusable false");
+//                    free();
                 }
             }else if (event.getAction() == MotionEvent.ACTION_UP) {
                 if(diffRaw < 20) {

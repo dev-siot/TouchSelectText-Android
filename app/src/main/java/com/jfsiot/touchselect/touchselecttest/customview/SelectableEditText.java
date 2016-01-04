@@ -25,9 +25,9 @@ public class SelectableEditText extends EditText{
     @Override
     public boolean dispatchKeyEventPreIme(KeyEvent event) {
         if(event.getAction() == KeyEvent.ACTION_UP && event.getKeyCode() == KeyEvent.KEYCODE_BACK && this.hasSelection()){
-            this.setSelection(0);
+            this.setSelection(this.getSelectionStart());
             this.clearFocus();
-            this.setTextIsSelectable(false);
+            this.setFocusable(false);
             return true;
         }
         return super.dispatchKeyEventPreIme(event);

@@ -3,7 +3,6 @@ package com.jfsiot.touchselect.touchselecttest.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.EditText;
 import com.jfsiot.touchselect.touchselecttest.R;
 import com.jfsiot.touchselect.touchselecttest.Toolbar.OnToolbarAction;
 import com.jfsiot.touchselect.touchselecttest.activity.MainActivity;
-import com.jfsiot.touchselect.touchselecttest.customview.SelectableEditText;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
