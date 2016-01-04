@@ -34,7 +34,7 @@ public class ComplexWordSentenceFragment extends SelectableFragment implements V
         this.wordIndexList = new ArrayList<>();
 
         String text = "";
-        for(String str : ((MainActivity) getActivity()).getTextSourse(1)){
+        for(String str : ((MainActivity) getActivity()).getTextSourse(0)){
             text += str;
             wordIndexList.add(text.length());
         }
