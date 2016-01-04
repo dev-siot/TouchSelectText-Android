@@ -13,7 +13,6 @@ import android.widget.EditText;
 import com.jfsiot.touchselect.touchselecttest.R;
 import com.jfsiot.touchselect.touchselecttest.Toolbar.OnToolbarAction;
 import com.jfsiot.touchselect.touchselecttest.activity.MainActivity;
-import com.jfsiot.touchselect.touchselecttest.customview.SelectableEditText;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,7 +26,7 @@ public class PasteFragment extends Fragment implements OnToolbarAction{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_memo, container, false);
+        View view = inflater.inflate(R.layout.fragment_uneditable, container, false);
         ButterKnife.bind(this, view);
 
         editText.setTextIsSelectable(true);

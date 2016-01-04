@@ -20,6 +20,7 @@
         android:padding="0dp"
         android:background="@drawable/background_textview"
         android:gravity="top"
-        android:inputType="text"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
         android:textSize="25sp"/>
 </RelativeLayout>

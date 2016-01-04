@@ -33,7 +33,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_editable, container, false);
         ButterKnife.bind(this, view);
 
         return view;
