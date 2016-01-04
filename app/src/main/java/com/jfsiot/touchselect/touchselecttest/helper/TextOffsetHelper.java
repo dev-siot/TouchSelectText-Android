@@ -23,10 +23,13 @@ public class TextOffsetHelper {
 //            }
 //            value = i;
 //        }
+        Timber.d("pos offset : %s %s", isLeft, offset);
         for(int i = 0; i < indexList.size(); i++){
-            if(indexList.get(i) > offset){
-                if(indexList.get(i) > endIndex -1)
-                    return endIndex -1;
+            if(indexList.get(i) >= offset){
+                if(indexList.get(i) > endIndex -1 && !isLeft)
+                    return endIndex ;
+                else if (indexList.get(i) > endIndex -1 && isLeft)
+                    return indexList.get(indexList.size()-2);
                 else if(isLeft && i > 0)
                     return indexList.get(i-1);
                 else if(isLeft && i == 0)

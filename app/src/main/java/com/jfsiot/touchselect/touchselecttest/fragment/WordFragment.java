@@ -170,12 +170,12 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
                         float centerOfSelection =  editText.getSelectionStart() + (editText.getSelectionEnd() - editText.getSelectionStart()) / 2;
                         Timber.d("pos center : %s", centerOfSelection);
                         if (location[1] <= centerOfSelection) {
-                            offset = TextOffsetHelper.getOffsetTextList(indexList, location[1], true, editText.getText().length() - 1);
+                            offset = TextOffsetHelper.getOffsetTextList(indexList, location[1], true, editText.getText().length() );
                             fixOffset = editText.getSelectionEnd();
                             if(Math.abs(editText.getSelectionStart() - offset) > 1) editText.setSelection(offset, fixOffset);
                             Timber.d("pos start");
                         } else if (location[1] > centerOfSelection) {
-                            offset = TextOffsetHelper.getOffsetTextList(indexList, location[1], false, editText.getText().length() - 1);
+                            offset = TextOffsetHelper.getOffsetTextList(indexList, location[1], false, editText.getText().length() );
                             fixOffset = editText.getSelectionStart();
                             if(Math.abs(editText.getSelectionEnd() - offset) > 1)  editText.setSelection(fixOffset, offset);
                             Timber.d("pos end");
@@ -209,8 +209,9 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
                 if(diffRaw < 20) {
                     Timber.d("pos up selection!");
                     TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getX()), ((int) event.getY()+editText.getScrollY()));
-                    int start = TextOffsetHelper.getOffsetTextList(indexList, location[1], true, editText.getText().length() - 1)
-                            , end = TextOffsetHelper.getOffsetTextList(indexList, location[1], false, editText.getText().length() - 1);
+                    int start = TextOffsetHelper.getOffsetTextList(indexList, location[1], true, editText.getText().length() )
+                            , end = TextOffsetHelper.getOffsetTextList(indexList, location[1], false, editText.getText().length());
+                    Timber.d("pos start %s end %s / %s", start, end, editText.getText().toString().length());
                     editText.setSelection(start, end);
                     return true;
                 }else{
