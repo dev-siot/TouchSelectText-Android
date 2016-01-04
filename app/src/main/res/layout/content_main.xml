@@ -28,5 +28,6 @@
         android:background="@drawable/background_none"
         android:inputType="none"
         android:textIsSelectable="false"
+        android:cursorVisible="false"
         android:textSize="25sp"/>
 </RelativeLayout>
