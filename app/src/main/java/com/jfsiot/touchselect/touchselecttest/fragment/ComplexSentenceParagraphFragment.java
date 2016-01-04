@@ -22,6 +22,13 @@ public class ComplexSentenceParagraphFragment extends SelectableFragment impleme
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        init();
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    protected void init() {
+        super.init();
         this.sentenceIndexList = new ArrayList<>();
 
         String text = "";
@@ -29,7 +36,7 @@ public class ComplexSentenceParagraphFragment extends SelectableFragment impleme
             text += str;
             sentenceIndexList.add(text.length());
         }
-        return super.onCreateView(inflater, container, savedInstanceState);
+        free();
     }
 
     @Override

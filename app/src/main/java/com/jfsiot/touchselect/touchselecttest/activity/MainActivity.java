@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         Fragment fragment = new DefaultFragment();
+        currentFragment = fragment;
         this.getFragmentManager().beginTransaction()
                 .add(R.id.activity_container, fragment)
                 .commit();
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    private Fragment currentFragment;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -91,9 +93,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ((OnToolbarAction) fragment).OnToolbarAction(1);
             return true;
         }else if (id == R.id.action_text_swap){
+            toolbar.getMenu().findItem(R.id.action_text_swap).setTitle(String.format(getString(R.string.action_swap), textKindOf));
             this.textKindOf ^= 1;
-            toolbar.getMenu().findItem(R.id.action_text_swap).setTitle(String.format(getString(R.string.action_swap), textKindOf^1));
-            getFragmentManager().beginTransaction().replace(R.id.activity_container, fragment).commit();
+            if(fragment instanceof OnToolbarAction)
+                ((OnToolbarAction) fragment).OnToolbarAction(2);
         }
 
         return super.onOptionsItemSelected(item);
@@ -132,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_paste) {
             fragment = new PasteFragment();
         }
+        currentFragment = fragment;
         this.getFragmentManager().beginTransaction()
                 .replace(R.id.activity_container, fragment)
                 .commit();

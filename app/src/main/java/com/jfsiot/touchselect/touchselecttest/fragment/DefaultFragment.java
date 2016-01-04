@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jfsiot.touchselect.touchselecttest.R;
+import com.jfsiot.touchselect.touchselecttest.Toolbar.OnToolbarAction;
 import com.jfsiot.touchselect.touchselecttest.activity.MainActivity;
 import com.jfsiot.touchselect.touchselecttest.customview.SelectableEditText;
 
@@ -17,7 +18,7 @@ import butterknife.ButterKnife;
 /**
  * Created by SSS on 2015-12-27.
  */
-public class DefaultFragment extends Fragment {
+public class DefaultFragment extends Fragment implements OnToolbarAction {
     @Bind(R.id.main_edit) protected SelectableEditText editText;
 
     @Nullable
@@ -26,14 +27,7 @@ public class DefaultFragment extends Fragment {
         View view = inflater.inflate(R.layout.content_main, container, false);
         ButterKnife.bind(this, view);
 
-
-        String text = "";
-        for(String str : ((MainActivity) getActivity()).getTextSourse(0)){
-            text += str;
-        }
-        this.editText.setText(text);
-        editText.setText(getResources().getString(R.string.default_text));
-        editText.setTextIsSelectable(true);
+        init();
         return view;
     }
 
@@ -41,5 +35,19 @@ public class DefaultFragment extends Fragment {
     public void onResume() {
         super.onResume();
         ((MainActivity) getActivity()).getToolbar().setTitle(R.string.nav_drawer_default);
+    }
+
+    @Override
+    public void OnToolbarAction(int action) {
+        if (action == 2) init();
+
+    }
+    public void init(){
+        String text = "";
+        for(String str : ((MainActivity) getActivity()).getTextSourse(0)){
+            text += str;
+        }
+        this.editText.setText(text);
+        editText.setTextIsSelectable(true);
     }
 }

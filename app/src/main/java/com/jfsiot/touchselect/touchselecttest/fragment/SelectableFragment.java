@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.jfsiot.touchselect.touchselecttest.R;
+import com.jfsiot.touchselect.touchselecttest.Toolbar.OnToolbarAction;
 import com.jfsiot.touchselect.touchselecttest.customview.SelectableEditText;
 import com.jfsiot.touchselect.touchselecttest.helper.TextOffsetHelper;
 
@@ -23,29 +24,18 @@ import timber.log.Timber;
 /**
  * Created by SSS on 2015-12-27.
  */
-public abstract class SelectableFragment extends Fragment implements View.OnTouchListener {
+public abstract class SelectableFragment extends Fragment implements View.OnTouchListener, OnToolbarAction {
     @Bind(R.id.main_edit) protected SelectableEditText editText;
     @Bind(R.id.main_container) protected RelativeLayout container;
 
     protected List<Integer> mainIndexList = new ArrayList<>();
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_main, container, false);
         ButterKnife.bind(this, view);
-
-        String text = "";
-        for(String str : this.getStringArrayResourse()){
-            text += str;
-            mainIndexList.add(text.length());
-        }
-        this.editText.setText(text);
+        init();
 
         return view;
     }
@@ -56,6 +46,24 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
     public void onResume() {
         super.onResume();
         this.editText.setOnTouchListener(this);
+    }
+
+    @Override
+    public void OnToolbarAction(int action) {
+        if(action == 2){
+            init();
+        }
+    }
+
+    protected void init(){
+        String text = "";
+        if(!mainIndexList.isEmpty())
+            mainIndexList.clear();
+        for(String str : this.getStringArrayResourse()){
+            text += str;
+            mainIndexList.add(text.length());
+        }
+        this.editText.setText(text);
         free();
     }
 

@@ -22,16 +22,22 @@ public class ComplexWordParagraphFragment extends SelectableFragment implements 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.wordIndexList = new ArrayList<>();
-
-        String text = "";
-        for(String str : ((MainActivity) getActivity()).getTextSourse(0)){
-            text += str;
-            wordIndexList.add(text.length());
-        }
+        init();
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+    @Override
+    protected void init() {
+        super.init();
+        this.wordIndexList = new ArrayList<>();
+
+        String text = "";
+        for(String str : ((MainActivity) getActivity()).getTextSourse(1)){
+            text += str;
+            wordIndexList.add(text.length());
+        }
+        free();
+    }
     @Override
     public void onResume() {
         super.onResume();

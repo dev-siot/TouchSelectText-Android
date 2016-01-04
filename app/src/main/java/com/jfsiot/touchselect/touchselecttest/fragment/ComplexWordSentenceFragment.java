@@ -24,13 +24,7 @@ public class ComplexWordSentenceFragment extends SelectableFragment implements V
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.wordIndexList = new ArrayList<>();
-
-        String text = "";
-        for(String str : ((MainActivity) getActivity()).getTextSourse(0)){
-            text += str;
-            wordIndexList.add(text.length());
-        }
+        init();
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
@@ -40,6 +34,18 @@ public class ComplexWordSentenceFragment extends SelectableFragment implements V
         ((MainActivity) getActivity()).getToolbar().setTitle(R.string.nav_drawer_group_complex_word_sentence);
     }
 
+    @Override
+    protected void init() {
+        super.init();
+        this.wordIndexList = new ArrayList<>();
+
+        String text = "";
+        for(String str : ((MainActivity) getActivity()).getTextSourse(1)){
+            text += str;
+            wordIndexList.add(text.length());
+        }
+        free();
+    }
     @Override
     protected String[] getStringArrayResourse() {
         return ((MainActivity) getActivity()).getTextSourse(1);
