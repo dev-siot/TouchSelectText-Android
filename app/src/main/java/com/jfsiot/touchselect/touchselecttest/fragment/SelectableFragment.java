@@ -120,7 +120,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
             }else if (event.getAction() == MotionEvent.ACTION_UP && diffRaw < 20) {
                 if(event.getEventTime() - downTime < 150){
-                    TextOffsetHelper.getPositionLineOffset(location, this.editText, posDownX, ((int) (posDownRawY + initScrollY)));
+                    TextOffsetHelper.getPositionLineOffset(location, this.editText, posDownX, ((int) (posDownY + initScrollY)));
                     if(tabTime != 0 && event.getEventTime() - tabTime < 200){
                         tabTime = 0;
                         this.free();
