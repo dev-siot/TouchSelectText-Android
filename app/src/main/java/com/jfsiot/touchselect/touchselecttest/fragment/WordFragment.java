@@ -3,7 +3,10 @@ package com.jfsiot.touchselect.touchselecttest.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +44,6 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
         super.onCreate(savedInstanceState);
     }
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,21 +51,6 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
         ButterKnife.bind(this, view);
 
         dataTextViewList = new ArrayList<>();
-//        editText.setOnSelectionChanged(new SelectableEditText.OnSelectionChanged() {
-//            @Override
-//            public void onSelectionChanged(int start, int end) {
-//                if (currentMode == 1) {
-//                    if (savedStart < 0 && savedEnd < 0) {
-//
-//                    } else if (start < savedStart)
-//                        editText.setSelection(TextOffsetHelper.jumpLeftSide(indexList, editText.getSelectionStart()), end);
-//                    else if (end > savedEnd)
-//                        editText.setSelection(start, TextOffsetHelper.jumpLeftSide(indexList, editText.getSelectionEnd()));
-//                    savedStart = start;
-//                    savedEnd = end;
-//                }
-//            }
-//        });
         String text = "";
         for(String str : getResources().getStringArray(R.array.word_text)){
             text += str;
@@ -117,14 +104,18 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
     private long downTime, tabTime = 0;
     private int MAX_SCROLLABLE_Y_POSITION = -1;
     private float posDownRawY, posDownRawX;
+    private int defaultTop = -1;
     Boolean isStart;
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         int location[] = new int[2];
         if(MAX_SCROLLABLE_Y_POSITION < 0) {
-            MAX_SCROLLABLE_Y_POSITION =  TextOffsetHelper.getViewTotalHeight(this.editText) - editText.getHeight();
         }
+        if(defaultTop < 0){
+            defaultTop = ((int) editText.getY());
+        }
+        Timber.d("pos height : %s", getResources().getDimension(R.dimen.actionbar_height));
         if(event.getAction() == MotionEvent.ACTION_DOWN){
             this.downTime = event.getEventTime();
             this.posDownX = ((int) event.getX());
@@ -132,20 +123,23 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
             this.posDownRawX = event.getRawX();
             this.posDownRawY = event.getRawY();
             this.initScrollY = editText.getScrollY();
+            MAX_SCROLLABLE_Y_POSITION =  TextOffsetHelper.getViewTotalHeight(this.editText) - editText.getHeight();
         }
         float diff = Math.abs(posDownX - event.getX() + posDownY - event.getY() - editText.getScrollY());
         float diffRaw = (float) Math.sqrt( Math.abs( Math.pow(posDownRawX - event.getRawX(), 2) + Math.pow(posDownRawY - event.getRawY(), 2) ) );
-
         float diffRawY = posDownRawY - event.getRawY();
         Timber.d("pos scrolled rawdiffY : %s, posdown: %s, diffraw %s, current scroll %s selctable : %s", diffRawY, posDownRawY, diffRaw, initScrollY, editText.isTextSelectable());
         if (event.getAction() == MotionEvent.ACTION_MOVE && Math.abs(diffRawY) > 10) {
-            Timber.d("pos block!");
+            Timber.d("pos block! MAX : %s scroll! %s", MAX_SCROLLABLE_Y_POSITION, diffRawY+initScrollY);
             if(((int) (diffRawY + initScrollY)) > MAX_SCROLLABLE_Y_POSITION) {
-                this.editText.scrollTo(0, MAX_SCROLLABLE_Y_POSITION);
+                this.editText.scrollTo(0, Math.max(MAX_SCROLLABLE_Y_POSITION, 0));
+                Timber.d("pos block stop!! max");
             }else if(((int) (diffRawY + initScrollY)) < 0){
                 this.editText.scrollTo(0, 0);
+                Timber.d("pos block stop!! 0");
             }else{
                 this.editText.scrollTo(0, ((int) (diffRawY + initScrollY)));
+                Timber.d("pos block stop!! move");
             }
         }
 
@@ -190,12 +184,7 @@ public class WordFragment extends Fragment implements View.OnTouchListener {
                     return true;
                 }
             }
-//            else{
-//                if(event.getEventTime() - downTime > 500)
-//                    free();
-//            }
             return true;
-
 
 
         }else{

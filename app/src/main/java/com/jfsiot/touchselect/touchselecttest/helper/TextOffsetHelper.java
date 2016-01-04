@@ -29,7 +29,7 @@ public class TextOffsetHelper {
                     return endIndex -1;
                 else if(isLeft && i > 0)
                     return indexList.get(i-1);
-                else if(i == 0)
+                else if(isLeft && i == 0)
                     return 0;
                 else return indexList.get(i);
             }
