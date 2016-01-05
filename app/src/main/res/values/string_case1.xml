@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="word_text_case1_v1" translatable = "false">
+        <item>"신기루"</item>
+        <item>"는" </item>
+        <item>" 그"</item>
+        <item>" 자리"</item>
+        <item>"에"</item>
+        <item>" 없는 "</item>
+        <item>" 어떤"</item>
+        <item>" 대상"</item>
+        <item>"이"</item>
+        <item>" 마치"</item>
+        <item>" 있는 것"</item>
+        <item>" 처럼"</item>
+        <item>" 보이는"</item>
+        <item>" 현상"</item>
+        <item>"을"</item>
+        <item>말한다</item>
+        <item>.</item>
+        <item>"\n"</item>
+        <item>"신기루"</item>
+        <item>"는 "</item>
+        <item>"환상"</item>
+        <item>"이나 "</item>
+        <item>"눈속임"</item>
+        <item>"이 "</item>
+        <item>"아니라 "</item>
+        <item>"원래"</item>
+        <item>"의 "</item>
+        <item>"대상"</item>
+        <item>"이 "</item>
+        <item>"공기층"</item>
+        <item>"의 "</item>
+        <item>"온도 차"</item>
+        <item>" 때문"</item>
+        <item>"에 "</item>
+        <item>"다른 곳"</item>
+        <item>"에 "</item>
+        <item>"보이게 "</item>
+        <item>"되는 "</item>
+        <item>"현상"</item>
+        <item>"이다. "</item>
+        <item>"\n"</item>
+        <item>"찬 "</item>
+        <item>"공기층"</item>
+        <item>"은 "</item>
+        <item>"밀도"</item>
+        <item>"가 "</item>
+        <item>"크고 "</item>
+        <item>"따뜻한"</item>
+        <item>"공기층"</item>
+        <item>"은 "</item>
+        <item>"밀도"</item>
+        <item>"가 "</item>
+        <item>"작다."</item>
+        <item>"\n"</item>
+        <item>"이러한 "</item>
+        <item>"밀도 "</item>
+        <item>"차이"</item>
+        <item>"는 "</item>
+        <item>"빛"</item>
+        <item>"이 "</item>
+        <item>"공기"</item>
+        <item>"를 "</item>
+        <item>"통과"</item>
+        <item>"하는 "</item>
+        <item>"시간"</item>
+        <item>"을 "</item>
+        <item>"변화"</item>
+        <item>"시키는데"</item>
+        <item>", "</item>
+        <item>"밀도"</item>
+        <item>"가 "</item>
+        <item>"클수록 "</item>
+        <item>"시간"</item>
+        <item>"이 "</item>
+        <item>"더 "</item>
+        <item>"걸리게 "</item>
+        <item>"된다"</item>
+        <item>"."</item>
+        <item>"\n"</item>
+        <item>"이 때 "</item>
+        <item>"공기층"</item>
+        <item>"을 "</item>
+        <item>"지나는 "</item>
+        <item>"빛"</item>
+        <item>"은 "</item>
+        <item>"밀도"</item>
+        <item>"가 "</item>
+        <item>"다른 "</item>
+        <item>"경계 면"</item>
+        <item>"을 "</item>
+        <item>"통과 "</item>
+        <item>"하면서 "</item>
+        <item>"굴절"</item>
+        <item>"한다"</item>
+        <item>"."</item>
+        <item>"따라서 "</item>
+        <item>"신기루"</item>
+        <item>"는 "</item>
+        <item>"지표면 "</item>
+        <item>"공기"</item>
+        <item>"와 "</item>
+        <item>"그 위 "</item>
+        <item>"공기"</item>
+        <item>" 간"</item>
+        <item>"의 "</item>
+        <item>"온도 차"</item>
+        <item>"가 "</item>
+        <item>"큰" "사막"</item>
+        <item>"이나 "</item>
+        <item>"극지방"</item>
+        <item>" 에서 "</item>
+        <item>"쉽게 "</item>
+        <item>"관찰"</item>
+        <item>" 할 수 있다"</item>
+        <item>"."</item>
+        <item>"\n"</item>
+        <item>"뜨거운 "</item>
+        <item>"여름"</item>
+        <item>", "</item>
+        <item>"사막"</item>
+        <item>"의 "</item>
+        <item>"지표면"</item>
+        <item>"은 "</item>
+        <item>"쉽게 "</item>
+        <item>"햇볕"</item>
+        <item>"을 "</item>
+        <item>"받아 "</item>
+        <item>"가열"</item>
+        <item>"되고"", "</item>
+        <item>"지표면 "</item>
+        <item>"공기"</item>
+        <item>"는 "</item>
+        <item>"그" "위층"</item>
+        <item>"의 "</item>
+        <item>"공기"</item>
+        <item>"에 "</item>
+        <item>"비해 "</item>
+        <item>"쉽게 "</item>
+        <item>"뜨거워진다"</item>
+        <item>".\n"</item>
+        <item>"뜨거운 "</item>
+        <item>"공기"</item>
+        <item>"는 "</item>
+        <item>"차가운 "</item>
+        <item>"공기"</item>
+        <item>"에 "</item>
+        <item>"비해 "</item>
+        <item>"밀도"</item>
+        <item>"가 "</item>
+        <item>"작은데"</item>
+        <item>", "</item>
+        <item>"이러한 "</item>
+        <item>"밀도 차이"</item>
+        <item>"에 "</item>
+        <item>"의해 "</item>
+        <item>"빛"</item>
+        <item>"이 "</item>
+        <item>"굴절"</item>
+        <item>"하게 "</item>
+        <item>"된다"</item>
+        <item>"."</item>
+        <item>"\n"</item>
+        <item>"나무 "</item>
+        <item>"한 "</item>
+        <item>"그루"</item>
+        <item>"가 "</item>
+        <item>"사막"</item>
+        <item>" 위"</item>
+        <item>"에 "</item>
+        <item>"있다고 "</item>
+        <item>"가정"</item>
+        <item>"하자""."</item>
+        <item>"나무"</item>
+        <item>"의 "</item>
+        <item>"윗부분"</item>
+        <item>"에서 "</item>
+        <item>"나온 "</item>
+        <item>"빛"</item>
+        <item>"의 "</item>
+        <item>"일부"</item>
+        <item>"는 "</item>
+        <item>"직진"</item>
+        <item>"하여 "</item>
+        <item>"사람 "</item>
+        <item>"눈"</item>
+        <item>"에 "</item>
+        <item>"곧바로 "</item>
+        <item>"도달"</item>
+        <item>"하므로 "</item>
+        <item>"우리 눈"</item>
+        <item>"에는 "</item>
+        <item>"똑바로 "</item>
+        <item>"선 "</item>
+        <item>"나무"</item>
+        <item>"가 "</item>
+        <item>"보인다."</item>
+    </string-array>
+    <string-array name="sentence_text_case1_v1" translatable = "false">
+        <item>"신기루는 그 자리에 없는 어떤 대상이 마치 있는 것 처럼 보이는 현상을 말한다.\n"</item>
+        <item>"신기루는 환상이나 눈속임이 아니라 원래의 대상이 공기층의 온도 차 때문에 다른 곳에 보이게 되는 현상이다.\n"</item>
+        <item>"찬 공기층은 밀도가 크고 따뜻한 공기층은 밀도가 작다.\n"</item>
+        <item>"이러한 밀도 차이는 빛이 공기를 통과하는 시간을 변화 시키는데, 밀도가 클수록 시간이 더 걸리게 된다.\n"</item>
+        <item>"이 때 공기층을 지나는 빛은 밀도가 다른 경계 면을 통과 하면서 굴절한다. 따라서 신기루는 지표면 공기와 그 위 공기 간의 온도 차가 큰 사막이나 극지방 에서 쉽게 관찰 할 수 있다.\n"</item>
+        <item>"뜨거운 여름, 사막의 지표면은 쉽게 햇볕을 받아 가열되고, 지표면 공기는 그 위층의 공기에 비해 쉽게 뜨거워진다.\n"</item>
+        <item>"뜨거운 공기는 차가운 공기에 비해 밀도가 작은데, 이러한 밀도 차이에 의해 빛이 굴절하게 된다.\n"</item>
+        <item>"나무 한 그루가 사막 위에 있다고 가정하자. 나무의 윗부분 에서 나온 빛의 일부는 직진하여 사람 눈에 곧바로 도달하므로 우리 눈에는 똑바로 선 나무가 보인다."</item>
+    </string-array>
+    <string-array name="paragraph_text_case1_v1" translatable = "false">
+        <item>"신기루는 그 자리에 없는 어떤 대상이 마치 있는 것 처럼 보이는 현상을 말한다. 신기루는 환상이나 눈속임이 아니라 원래의 대상이 공기층의 온도 차 때문에 다른 곳에 보이게 되는 현상이다.\n"</item>
+        <item>"찬 공기층은 밀도가 크고 따뜻한 공기층은 밀도가 작다. 이러한 밀도 차이는 빛이 공기를 통과하는 시간을 변화 시키는데, 밀도가 클수록 시간이 더 걸리게 된다.\n"</item>
+        <item>"이 때 공기층을 지나는 빛은 밀도가 다른 경계 면을 통과 하면서 굴절한다. 따라서 신기루는 지표면 공기와 그 위 공기 간의 온도 차가 큰 사막이나 극지방 에서 쉽게 관찰 할 수 있다.\n"</item>
+        <item>"뜨거운 여름, 사막의 지표면은 쉽게 햇볕을 받아 가열되고, 지표면 공기는 그 위층의 공기에 비해 쉽게 뜨거워진다. 뜨거운 공기는 차가운 공기에 비해 밀도가 작은데, 이러한 밀도 차이에 의해 빛이 굴절하게 된다.\n"</item>
+        <item>"나무 한 그루가 사막 위에 있다고 가정하자. 나무의 윗부분 에서 나온 빛의 일부는 직진하여 사람 눈에 곧바로 도달하므로 우리 눈에는 똑바로 선 나무가 보인다."</item>
+    </string-array>
+
+    <string name="default_text" translatable = "false">
+        "신기루는 그 자리에 없는 어떤 대상이 마치 있는 것 처럼 보이는 현상을 말한다. 신기루는 환상이나 눈속임이 아니라 원래의 대상이 공기층의 온도 차 때문에 다른 곳에 보이게 되는 현상이다.\n찬 공기층은 밀도가 크고 따뜻한 공기층은 밀도가 작다. 이러한 밀도 차이는 빛이 공기를 통과하는 시간을 변화 시키는데, 밀도가 클수록 시간이 더 걸리게 된다.\n이 때 공기층을 지나는 빛은 밀도가 다른 경계 면을 통과 하면서 굴절한다. 따라서 신기루는 지표면 공기와 그 위 공기 간의 온도 차가 큰 사막이나 극지방 에서 쉽게 관찰 할 수 있다.\n뜨거운 여름, 사막의 지표면은 쉽게 햇볕을 받아 가열되고, 지표면 공기는 그 위층의 공기에 비해 쉽게 뜨거워진다. 뜨거운 공기는 차가운 공기에 비해 밀도가 작은데, 이러한 밀도 차이에 의해 빛이 굴절하게 된다.\n 나무 한 그루가 사막 위에 있다고 가정하자. 나무의 윗부분 에서 나온 빛의 일부는 직진하여 사람 눈에 곧바로 도달하므로 우리 눈에는 똑바로 선 나무가 보인다."
+    </string>
+
+
+    <string-array name="word_text_case1_v2" translatable = "false">
+        <item>" "</item>
+        <item>" "</item>
+        <item>"버티는"</item>
+        <item>" "</item>
+        <item>"삶이란"</item>
+        <item>" "</item>
+        <item>"웅크리고"</item>
+        <item>" "</item>
+        <item>"침묵"</item>
+        <item>"하는"</item>
+        <item>" "</item>
+        <item>"삶"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"아닙니다."</item>
+        <item>" "</item>
+        <item>"웅크리고"</item>
+        <item>" "</item>
+        <item>"침묵"</item>
+        <item>"해서는"</item>
+        <item>" "</item>
+        <item>"어차피"</item>
+        <item>" "</item>
+        <item>"오래"</item>
+        <item>" "</item>
+        <item>"버티지도"</item>
+        <item>" "</item>
+        <item>"못합니다."</item>
+        <item>" "</item>
+        <item>"오래"</item>
+        <item>" "</item>
+        <item>"버티기"</item>
+        <item>" "</item>
+        <item>"위해서는"</item>
+        <item>" "</item>
+        <item>"지금"</item>
+        <item>" "</item>
+        <item>"처해"</item>
+        <item>"있는"</item>
+        <item>" "</item>
+        <item>"현실"</item>
+        <item>"과"</item>
+        <item>" "</item>
+        <item>"나"</item>
+        <item>" "</item>
+        <item>"자신"</item>
+        <item>" "</item>
+        <item>"에"</item>
+        <item>" "</item>
+        <item>"대해"</item>
+        <item>" "</item>
+        <item>"냉정"</item>
+        <item>"하게"</item>
+        <item>" "</item>
+        <item>"판단"</item>
+        <item>"할 수"</item>
+        <item>" "</item>
+        <item>"있는"</item>
+        <item>" "</item>
+        <item>"훈련"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"필요"</item>
+        <item>"합니다."</item>
+        <item>" "</item>
+        <item>"그래야"</item>
+        <item>" "</item>
+        <item>"얻어맞고"</item>
+        <item>"비난"</item>
+        <item>"받아"</item>
+        <item>" "</item>
+        <item>"찢어져"</item>
+        <item>" "</item>
+        <item>"다"</item>
+        <item>" "</item>
+        <item>"포기"</item>
+        <item>"하고"</item>
+        <item>" "</item>
+        <item>"싶을 때"</item>
+        <item>"마저"</item>
+        <item>" "</item>
+        <item>"오기"</item>
+        <item>"가"</item>
+        <item>" "</item>
+        <item>"아닌"</item>
+        <item>" "</item>
+        <item>"판단"</item>
+        <item>"에"</item>
+        <item>" "</item>
+        <item>"근거"</item>
+        <item>"해"</item>
+        <item>" "</item>
+        <item>"버틸"</item>
+        <item>" "</item>
+        <item>"수"</item>
+        <item>" "</item>
+        <item>"있습니다."</item>
+        <item>" "</item>
+        <item>"요컨대,"</item>
+        <item>" "</item>
+        <item>"버틸"</item>
+        <item>" "</item>
+        <item>"수"</item>
+        <item>" "</item>
+        <item>"있는"</item>
+        <item>" "</item>
+        <item>"몸"</item>
+        <item>"을"</item>
+        <item>" "</item>
+        <item>"만들자."</item>
+        <item>" "</item>
+        <item>"는"</item>
+        <item>" "</item>
+        <item>"것 입니다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"우리"</item>
+        <item>"는"</item>
+        <item>" "</item>
+        <item>"버텨야"</item>
+        <item>" "</item>
+        <item>"합니다."</item>
+        <item>" "</item>
+        <item>"버티는 것"</item>
+        <item>" "</item>
+        <item>"말고는"</item>
+        <item>" "</item>
+        <item>"답이"</item>
+        <item>" "</item>
+        <item>"없습니다."</item>
+        <item>" "</item>
+        <item>"어느"</item>
+        <item>" "</item>
+        <item>"누가"</item>
+        <item>" "</item>
+        <item>"손가락질"</item>
+        <item>"하고"</item>
+        <item>" "</item>
+        <item>"비웃더라도,"</item>
+        <item>" "</item>
+        <item>"우리"</item>
+        <item>"는"</item>
+        <item>" "</item>
+        <item>"버티고"</item>
+        <item>" "</item>
+        <item>"버티어"</item>
+        <item>" "</item>
+        <item>"끝내"</item>
+        <item>" "</item>
+        <item>"버티어야만"</item>
+        <item>" "</item>
+        <item>"합니다."</item>
+        <item>" "</item>
+        <item>"그래서"</item>
+        <item>" "</item>
+        <item>"끝"</item>
+        <item>"까지"</item>
+        <item>" "</item>
+        <item>"남아야만"</item>
+        <item>" "</item>
+        <item>"합니다."</item>
+        <item>" "</item>
+        <item>"그래서"</item>
+        <item>" "</item>
+        <item>"끝"</item>
+        <item>"까지"</item>
+        <item>" "</item>
+        <item>"남아야만"</item>
+        <item>" "</item>
+        <item>"합니다."</item>
+        <item>" "</item>
+        <item>"저"</item>
+        <item>"는"</item>
+        <item>" "</item>
+        <item>"버티는"</item>
+        <item>" "</item>
+        <item>"것"</item>
+        <item>"이라면"</item>
+        <item>" "</item>
+        <item>"당위"</item>
+        <item>"가"</item>
+        <item>" "</item>
+        <item>"되어도"</item>
+        <item>" "</item>
+        <item>"좋습니다."</item>
+        <item>" "</item>
+        <item>"제"</item>
+        <item>" "</item>
+        <item>"인생"</item>
+        <item>"이"</item>
+        <item>" "</item>
+        <item>"닳고"</item>
+        <item>" "</item>
+        <item>"닳아"</item>
+        <item>" "</item>
+        <item>"한줌"</item>
+        <item>"의"</item>
+        <item>" "</item>
+        <item>"비웃음"</item>
+        <item>"밖에"</item>
+        <item>" "</item>
+        <item>"사지"</item>
+        <item>" "</item>
+        <item>"않더라도"</item>
+        <item>" "</item>
+        <item>"끝내"</item>
+        <item>" "</item>
+        <item>"그거"</item>
+        <item>" "</item>
+        <item>"하나"</item>
+        <item>"만은"</item>
+        <item>" "</item>
+        <item>"챙기고"</item>
+        <item>" "</item>
+        <item>"싶습니다."</item>
+        <item>" "</item>
+        <item>"그래도"</item>
+        <item>" "</item>
+        <item>"쟤"</item>
+        <item>" "</item>
+        <item>"꽤"</item>
+        <item>" "</item>
+        <item>"오래"</item>
+        <item>" "</item>
+        <item>"버텼다."</item>
+        <item>" "</item>
+        <item>"라는"</item>
+        <item>" "</item>
+        <item>"말"</item>
+        <item>"입니다."</item>
+    </string-array>
+    <string-array name="sentence_text_case1_v2" translatable="false">
+        <item>" "</item>
+        <item>" "</item>
+        <item>"버티는 삶이란 웅크리고 침묵하는 삶이 아닙니다."</item>
+        <item>" "</item>
+        <item>"웅크리고 침묵해서는 어차피 오래 버티지도 못합니다."</item>
+        <item>" "</item>
+        <item>"오래 버티기 위해서는 지금 처해 있는 현실과 나 자신에 대해 냉정하게 판단할 수 있는 훈련이 필요합니다."</item>
+        <item>" "</item>
+        <item>"그래야 얻어맞고 비난받아 찢어져 다 포기하고 싶을 때마저 오기가 아닌 판단에 근거해 버틸 수 있습니다."</item>
+        <item>" "</item>
+        <item>"요컨대, 버틸 수 있는 몸을 만들자. 는 것입니다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"우리는 버텨야 합니다."</item>
+        <item>" "</item>
+        <item>"버티는 것 말고는 답이 없습니다."</item>
+        <item>" "</item>
+        <item>"어느 누가 손가락질하고 비웃더라도, 우리는 버티고 버티어 끝내 버티어야만 합니다."</item>
+        <item>" "</item>
+        <item>"그래서 끝까지 남아야만 합니다."</item>
+        <item>" "</item>
+        <item>"그래서 끝까지 남아야만 합니다."</item>
+        <item>" "</item>
+        <item>"저는 버티는 것이라면 당위가 되어도 좋습니다."</item>
+        <item>" "</item>
+        <item>"제 인생이 닳고 닳아 한줌의 비웃음밖에 사지 않더라도 끝내 그거 하나만은 챙기고 싶습니다."</item>
+        <item>" "</item>
+        <item>"그래도 쟤 꽤 오래 버텼다. 라는 말입니다."</item>
+        <item>"\n\n"</item>
+    </string-array>
+
+    <string-array name="paragraph_text_case1_v2" translatable="false">
+        <item>" "</item>
+        <item>" "</item>
+        <item>"버티는 삶이랑 웅크리고 침묵하는 삶이 아닙니다. 웅크리고 침묵해서는 어차피 오래 버티지도 못합니다. 오래 버티기 위해서는 지금 처해 있는 현실과 나 자신에 대해 냉정하게 판단할 수 있는 훈련이 필요합니다. 그래야 얻어맞고 비난받아 찢어져 다 포기하고 싶을 때마저 오기가 아닌 판단에 근거해 버틸 수 있습니다. 요컨대, 버틸 수 있는 몸을 만들자. 는 것입니다."</item>
+        <item>"\n\n"</item>
+        <item>" "</item>
+        <item>" "</item>
+        <item>"우리는 버텨야 합니다. 버티는 것 말고는 답이 없습니다. 어느 누가 손가락질하고 비웃더라도, 우리는 버티고 버티어 끝내 버티어야만 합니다. 그래서 끝까지 남아야만 합니다. 그래서 끝까지 남아야만 합니다. 저는 버티는 것이라면 당위가 되어도 좋습니다. 제 인생이 닳고 닳아 한줌의 비웃음밖에 사지 않더라도 끝내 그거 하나만은 챙기고 싶습니다. 그래도 쟤 꽤 오래 버텼다. 라는 말입니다."</item>
+        <item>"\n\n"</item>
+        <item>"\n\n"</item>
+    </string-array>
+</resources>

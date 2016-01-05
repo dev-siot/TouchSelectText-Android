@@ -72,6 +72,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+//    private ActionMode mActionMode = null;
+//    @Override
+//    public void onActionModeStarted(ActionMode mode) {
+//        if (mActionMode == null) {
+//            mActionMode = mode;
+//            Menu menu = mode.getMenu();
+//            // Remove the default menu items (select all, copy, paste, search)
+//            menu.clear();
+//
+//            // If you want to keep any of the defaults,
+//            // remove the items you don't want individually:
+//            // menu.removeItem(android.R.id.[id_of_item_to_remove])
+//
+//            // Inflate your own menu items
+//            mode.getMenuInflater().inflate(R.menu.text_selection_cab, menu);
+//        }
+//
+//        super.onActionModeStarted(mode);
+//    }
+
+//    public void onContextualMenuItemClicked(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.cab_copy:
+//
+//                // do some stuff
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -104,9 +135,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public String[] getTextSourse(int range){
         switch (range){
-            case 0 : return getResources().getStringArray(textKindOf > 0 ? R.array.word_text2 : R.array.word_text);
-            case 1 : return getResources().getStringArray(textKindOf > 0 ? R.array.sentence_text2 : R.array.sentence_text);
-            case 2 : return getResources().getStringArray(textKindOf > 0 ? R.array.paragraph_text2 : R.array.paragraph_text);
+            case 0 : return getResources().getStringArray(textKindOf > 0 ? R.array.word_text_case2_v2 : R.array.word_text_case1_v2);
+            case 1 : return getResources().getStringArray(textKindOf > 0 ? R.array.sentence_text2_case2_v1 : R.array.sentence_text_case1_v2);
+            case 2 : return getResources().getStringArray(textKindOf > 0 ? R.array.paragraph_text2_case2_v1 : R.array.paragraph_text_case1_v2);
             default: return new String[0];
         }
     }

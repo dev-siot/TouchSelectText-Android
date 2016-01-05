@@ -10,6 +10,10 @@
     <string name="action_swap">%s로 변경</string>
     <string name="action_swap_first">1로 변경</string>
 
+    <!-- cab -->
+    <string name="cab_cut">잘라내기</string>
+    <string name="cab_copy">복사하기</string>
+
     <!--nav drawer name-->
     <string name="nav_drawer_paste">메모장</string>
     <string name="nav_drawer_default">기본</string>
