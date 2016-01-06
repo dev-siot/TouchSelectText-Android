@@ -1,12 +1,15 @@
 package com.jfsiot.touchselect.touchselecttest.fragment;
 
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Parcel;
 import android.support.annotation.Nullable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.CharacterStyle;
+import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -79,16 +82,23 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
         }
         this.editText.setText(text);
         free();
-        if(adjustSpannalbe && ((MainActivity) getActivity()).getCurrentTextStatue() == 1){
-            SpannableStringBuilder builder = new SpannableStringBuilder(text);
-            builder.setSpan(new UnderlineSpan(), 97, 100, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.setSpan(new UnderlineSpan(), 188, 196, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.setSpan(new UnderlineSpan(), 324, 409, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            Timber.d("text index : %s %s", text.indexOf("쉽게 이용할"),  text.indexOf("공공 데이터 포털 사이트에서는"));
-            builder.setSpan(new UnderlineSpan(), 532, 559, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.setSpan(new UnderlineSpan(), 606, 835, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.setSpan(new UnderlineSpan(), 839, 918, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            this.editText.setText(builder);
+        if(adjustSpannalbe){
+            if(((MainActivity) getActivity()).getCurrentTextStatue() == 1) {
+                SpannableStringBuilder builder = new SpannableStringBuilder(text);
+                builder.setSpan(new UnderlineSpan(), 97, 100, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                builder.setSpan(new UnderlineSpan(), 188, 196, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                builder.setSpan(new UnderlineSpan(), 324, 409, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                builder.setSpan(new UnderlineSpan(), 532, 559, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                builder.setSpan(new UnderlineSpan(), 606, 835, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                builder.setSpan(new UnderlineSpan(), 839, 918, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                this.editText.setText(builder);
+            }else if(((MainActivity) getActivity()).getCurrentTextStatue() == 0){
+                SpannableStringBuilder builder = new SpannableStringBuilder(text);
+                builder.setSpan(new UnderlineSpan(), 92, 116, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                builder.setSpan(new StyleSpan(Typeface.BOLD | Typeface.ITALIC), 259, 284, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                builder.setSpan(new UnderlineSpan(), 207, 328, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                this.editText.setText(builder);
+            }
         }
     }
 
