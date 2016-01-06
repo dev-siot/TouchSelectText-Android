@@ -97,7 +97,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
         posDownY = -1;
         this.editText.setSelection(editText.getSelectionStart());
         this.editText.clearFocus();
-        editText.setFocusable(false);
+//        editText.setFocusable(false);
     }
 
     protected int posDownX, posDownY;
@@ -110,7 +110,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         int location[] = new int[2];
-        Timber.d("touch : %s %s %s %s", editText.isTextSelectable(), editText.hasSelection(), editText.getSelectionStart(), editText.getSelectionEnd());
+        Timber.d("touch : %s %s %s %s %s %s", editText.isTextSelectable(), editText.hasSelection(), editText.isFocused(), editText.isFocusable(), editText.getSelectionStart(), editText.getSelectionEnd());
         if(!editText.isTextSelectable() && editText.hasSelection()) {
             free();
             return true;

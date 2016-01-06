@@ -46,7 +46,7 @@ public class SelectableEditText extends EditText{
         if(event.getAction() == KeyEvent.ACTION_UP && event.getKeyCode() == KeyEvent.KEYCODE_BACK && this.hasSelection()){
             this.setSelection(this.getSelectionStart());
             this.clearFocus();
-            this.setFocusable(false);
+//            this.setFocusable(false);
             return true;
         }
         return super.dispatchKeyEventPreIme(event);
