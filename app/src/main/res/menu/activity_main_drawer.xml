@@ -7,37 +7,38 @@
                 android:id="@+id/nav_paste"
                 android:icon="@drawable/ic_event_note_white_24dp"
                 android:title="@string/nav_drawer_paste" />
+
+            <item
+                android:id="@+id/nav_default"
+                android:icon="@drawable/ic_content_copy_white_24dp"
+                android:title="@string/nav_drawer_default" />
             </menu>
     </item>
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_default"
-            android:icon="@drawable/ic_content_copy_white_24dp"
-            android:title="@string/nav_drawer_default" />
         <item
             android:id="@+id/nav_word"
             android:icon="@drawable/ic_short_text_white_24dp"
             android:title="@string/nav_drawer_word" />
         <item
-            android:id="@+id/nav_sentence"
+            android:id="@+id/nav_complex_word_sentence"
             android:icon="@drawable/ic_drag_handle_white_24dp"
-            android:title="@string/nav_drawer_sentence" />
+            android:title="@string/nav_drawer_group_complex_word_sentence" />
         <item
-            android:id="@+id/nav_paragraph"
+            android:id="@+id/nav_complex_word_paragraph"
             android:icon="@drawable/ic_format_align_left_white_24dp"
-            android:title="@string/nav_drawer_paragraph" />
+            android:title="@string/nav_drawer_group_complex_word_paragraph" />
     </group>
 
     <item android:title="@string/nav_drawer_group_complex">
         <menu>
             <item
-                android:id="@+id/nav_complex_word_sentence"
+                android:id="@+id/nav_sentence"
                 android:icon="@drawable/ic_looks_one_white_24dp"
-                android:title="@string/nav_drawer_group_complex_word_sentence" />
+                android:title="@string/nav_drawer_sentence" />
             <item
-                android:id="@+id/nav_complex_word_paragraph"
+                android:id="@+id/nav_paragraph"
                 android:icon="@drawable/ic_looks_two_white_24dp"
-                android:title="@string/nav_drawer_group_complex_word_paragraph" />
+                android:title="@string/nav_drawer_paragraph" />
             <item
                 android:id="@+id/nav_complex_sentence_paragraph"
                 android:icon="@drawable/ic_looks_3_white_24dp"
