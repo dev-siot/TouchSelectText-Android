@@ -11,6 +11,7 @@ import com.jfsiot.touchselect.touchselecttest.activity.MainActivity;
 public class WordFragment extends SelectableFragment implements View.OnTouchListener {
     @Override
     public void onResume() {
+        setAdjustSpannable(true);
         super.onResume();
         ((MainActivity) getActivity()).getToolbar().setTitle(R.string.nav_drawer_word);
     }

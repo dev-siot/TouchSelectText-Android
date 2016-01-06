@@ -141,6 +141,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             default: return new String[0];
         }
     }
+    public int getCurrentTextStatue(){
+        return textKindOf;
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

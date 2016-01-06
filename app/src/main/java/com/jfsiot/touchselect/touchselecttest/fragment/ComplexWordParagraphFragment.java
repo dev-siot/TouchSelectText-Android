@@ -34,6 +34,7 @@ public class ComplexWordParagraphFragment extends SelectableFragment implements 
     }
     @Override
     public void onResume() {
+        setAdjustSpannable(true);
         super.onResume();
         init();
         ((MainActivity) getActivity()).getToolbar().setTitle(R.string.nav_drawer_group_complex_word_paragraph);

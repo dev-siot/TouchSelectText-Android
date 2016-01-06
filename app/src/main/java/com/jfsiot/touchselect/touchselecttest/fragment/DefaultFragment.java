@@ -3,6 +3,9 @@ package com.jfsiot.touchselect.touchselecttest.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,5 +55,16 @@ public class DefaultFragment extends Fragment implements OnToolbarAction {
         }
         this.editText.setText(text);
         editText.setTextIsSelectable(true);
+
+//        if(((MainActivity) getActivity()).getCurrentTextStatue() == 1){
+//            SpannableStringBuilder builder = new SpannableStringBuilder(text);
+//            builder.setSpan(new UnderlineSpan(), 97, 100, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            builder.setSpan(new UnderlineSpan(), 188, 196, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            builder.setSpan(new UnderlineSpan(), 323, 408, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            builder.setSpan(new UnderlineSpan(), 531, 558, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            builder.setSpan(new UnderlineSpan(), 604, 833, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            builder.setSpan(new UnderlineSpan(), 837, 915, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            this.editText.setText(builder);
+//        }
     }
 }

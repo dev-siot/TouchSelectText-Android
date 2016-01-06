@@ -3,6 +3,11 @@ package com.jfsiot.touchselect.touchselecttest.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.CharacterStyle;
+import android.text.style.UnderlineSpan;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,6 +19,7 @@ import android.widget.RelativeLayout;
 
 import com.jfsiot.touchselect.touchselecttest.R;
 import com.jfsiot.touchselect.touchselecttest.Toolbar.OnToolbarAction;
+import com.jfsiot.touchselect.touchselecttest.activity.MainActivity;
 import com.jfsiot.touchselect.touchselecttest.customview.SelectableEditText;
 import com.jfsiot.touchselect.touchselecttest.helper.TextOffsetHelper;
 
@@ -58,6 +64,10 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
             init();
         }
     }
+    private boolean adjustSpannalbe = false;
+    public void setAdjustSpannable(boolean setting){
+        this.adjustSpannalbe = setting;
+    }
 
     protected void init(){
         String text = "";
@@ -69,6 +79,17 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
         }
         this.editText.setText(text);
         free();
+//        if(adjustSpannalbe && ((MainActivity) getActivity()).getCurrentTextStatue() == 1){
+//            SpannableStringBuilder builder = new SpannableStringBuilder(text);
+//            builder.setSpan(new UnderlineSpan(), 97, 100, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            builder.setSpan(new UnderlineSpan(), 188, 196, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            builder.setSpan(new UnderlineSpan(), 324, 409, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//
+//            builder.setSpan(new UnderlineSpan(), 532, 559, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            builder.setSpan(new UnderlineSpan(), 605, 834, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            builder.setSpan(new UnderlineSpan(), 839, 918, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            this.editText.setText(builder);
+//        }
     }
 
     protected void free(){
@@ -122,6 +143,8 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
             editText.setSelection(location[1], location[1]);
         }*/
 
+        TextOffsetHelper.getPositionLineOffset(location, this.editText, ((int) event.getX()), ((int) event.getY() + editText.getScrollY()));
+        Timber.d("offset : %s", location[1]);
 
         if (editText.hasSelection()) {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {

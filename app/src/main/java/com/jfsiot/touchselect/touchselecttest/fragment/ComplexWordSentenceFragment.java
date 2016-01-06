@@ -23,6 +23,7 @@ public class ComplexWordSentenceFragment extends SelectableFragment implements V
 
     @Override
     public void onResume() {
+        setAdjustSpannable(true);
         super.onResume();
         init();
         ((MainActivity) getActivity()).getToolbar().setTitle(R.string.nav_drawer_group_complex_word_sentence);
