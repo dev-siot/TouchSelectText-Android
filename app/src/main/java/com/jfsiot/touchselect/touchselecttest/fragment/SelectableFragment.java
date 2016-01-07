@@ -88,7 +88,7 @@ public abstract class SelectableFragment extends Fragment implements View.OnTouc
                 builder.setSpan(new UnderlineSpan(), 97, 100, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 builder.setSpan(new UnderlineSpan(), 188, 196, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 builder.setSpan(new UnderlineSpan(), 324, 409, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                builder.setSpan(new UnderlineSpan(), 532, 559, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                builder.setSpan(new UnderlineSpan(), 467, 531, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 builder.setSpan(new UnderlineSpan(), 606, 835, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 builder.setSpan(new UnderlineSpan(), 839, 918, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 this.editText.setText(builder);
